@@ -12,15 +12,20 @@ import 'package:hani/features/wallet/domain/entity/wallet.entity.dart';
 
 import '../../../../core/dependency_injection/injection.dart';
 import '../../../wallet/domain/bloc/wallet/wallet_bloc.dart';
+import '../../domain/entities/tag.entity.dart';
 
 @RoutePage()
 class TagPage extends StatefulWidget {
   const TagPage({
     super.key,
     required this.transactionType,
+    this.isSelecting = false,
+    this.selectedTags,
   });
 
   final String transactionType;
+  final bool isSelecting;
+  final List<String>? selectedTags;
 
   @override
   State<TagPage> createState() => _TagPageState();
@@ -34,6 +39,8 @@ class _TagPageState extends State<TagPage> {
   late String _walletId;
   late String _transactionType;
 
+  late bool _isSelecting;
+
   @override
   void initState() {
     super.initState();
@@ -43,6 +50,20 @@ class _TagPageState extends State<TagPage> {
 
     _walletId = _walletBloc.state.selectedWallet!.walletId;
     _transactionType = widget.transactionType;
+
+    _isSelecting = widget.isSelecting;
+
+    if (_isSelecting) {
+      _tagBloc
+          .add(TagEvent.saveSelectedTags(selectedTags: widget.selectedTags!));
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+
+    _tagBloc.add(const TagEvent.clearSelectedTags());
   }
 
   @override
@@ -56,13 +77,9 @@ class _TagPageState extends State<TagPage> {
             title: _transactionType == TransactionType.expense
                 ? 'Expense Tags'
                 : 'Income Tags',
-            onBackPressed: _router.maybePop,
-            addOnPressed: () {
-              _router.push(TagFormRoute(transactionType: _transactionType));
-            },
-            onRefresh: () async {
-              _getTags();
-            },
+            onBackPressed: _handleOnBackPressed,
+            addOnPressed: _handleAddOnPressed,
+            onRefresh: _handleOnRefresh,
             tagItemParams: _getTagItems(state),
           ),
         );
@@ -95,30 +112,48 @@ class _TagPageState extends State<TagPage> {
   List<TagItemParam> _getTagItems(TagState state) {
     List<TagItemParam> tags = [];
 
+    mapper(TagEntity e) {
+      return TagItemParam(
+        isSelecting: _isSelecting,
+        isSelected: state.selectedTags.contains(e.tagId),
+        name: e.label,
+        color: e.color,
+        onTap: () {
+          _router.push(
+              TagFormRoute(transactionType: _transactionType, tagId: e.tagId));
+        },
+        onSelect: () {
+          final bool isSelected = state.selectedTags.contains(e.tagId);
+
+          if (isSelected) {
+            _tagBloc.add(TagEvent.removeTag(tagId: e.tagId));
+          } else {
+            _tagBloc.add(TagEvent.selectTag(tagId: e.tagId));
+          }
+        },
+      );
+    }
+
     if (_transactionType == TransactionType.income) {
-      tags = state.incomeTags.where((e) => !e.deleted).map((e) {
-        return TagItemParam(
-            name: e.label,
-            color: e.color,
-            onTap: () {
-              _router.push(TagFormRoute(
-                  transactionType: _transactionType, tagId: e.tagId));
-            });
-      }).toList();
+      tags = state.incomeTags.where((e) => !e.deleted).map(mapper).toList();
     }
 
     if (_transactionType == TransactionType.expense) {
-      tags = state.expenseTags.where((e) => !e.deleted).map((e) {
-        return TagItemParam(
-            name: e.label,
-            color: e.color,
-            onTap: () {
-              _router.push(TagFormRoute(
-                  transactionType: _transactionType, tagId: e.tagId));
-            });
-      }).toList();
+      tags = state.expenseTags.where((e) => !e.deleted).map(mapper).toList();
     }
 
     return tags;
+  }
+
+  _handleAddOnPressed() {
+    _router.push(TagFormRoute(transactionType: _transactionType));
+  }
+
+  Future<void> _handleOnRefresh() async {
+    _getTags();
+  }
+
+  _handleOnBackPressed() async {
+    await _router.maybePop<List<String>>(_tagBloc.state.selectedTags);
   }
 }

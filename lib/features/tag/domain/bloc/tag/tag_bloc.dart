@@ -121,5 +121,21 @@ class TagBloc extends Bloc<TagEvent, TagState> {
       emit(TagState.success(state, 'Tag successfully deleted!'));
       emit(TagState.loaded(state));
     });
+
+    on<_SelectTag>((event, emit) {
+      emit(TagState.selectTag(state, event.tagId));
+    });
+
+    on<_RemoveTag>((event, emit) {
+      emit(TagState.removeTag(state, event.tagId));
+    });
+
+    on<_ClearSelectedTags>((event, emit) {
+      emit(TagState.clearSelectedTags(state));
+    });
+
+    on<_SaveSelectedTags>((event, emit) {
+      emit(TagState.saveSelectedTags(state, event.selectedTags));
+    });
   }
 }

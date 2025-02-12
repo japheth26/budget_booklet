@@ -8,7 +8,7 @@ class CategoryDto with _$CategoryDto {
   const factory CategoryDto({
     String? categoryId,
     String? label,
-    String? icon,
+    int? icon,
     int? color,
     bool? deleted,
     String? walletId,

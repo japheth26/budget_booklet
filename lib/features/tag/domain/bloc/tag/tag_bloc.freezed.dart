@@ -16,13 +16,16 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TagEvent {
-  Object get dto => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(GetAllTagsDto dto) getAllTags,
     required TResult Function(CreateTagDto dto) createTag,
     required TResult Function(UpdateTagDto dto) updateTag,
     required TResult Function(DeleteTagDto dto) deleteTag,
+    required TResult Function(String tagId) selectTag,
+    required TResult Function(String tagId) removeTag,
+    required TResult Function() clearSelectedTags,
+    required TResult Function(List<String> selectedTags) saveSelectedTags,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +34,10 @@ mixin _$TagEvent {
     TResult? Function(CreateTagDto dto)? createTag,
     TResult? Function(UpdateTagDto dto)? updateTag,
     TResult? Function(DeleteTagDto dto)? deleteTag,
+    TResult? Function(String tagId)? selectTag,
+    TResult? Function(String tagId)? removeTag,
+    TResult? Function()? clearSelectedTags,
+    TResult? Function(List<String> selectedTags)? saveSelectedTags,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +46,10 @@ mixin _$TagEvent {
     TResult Function(CreateTagDto dto)? createTag,
     TResult Function(UpdateTagDto dto)? updateTag,
     TResult Function(DeleteTagDto dto)? deleteTag,
+    TResult Function(String tagId)? selectTag,
+    TResult Function(String tagId)? removeTag,
+    TResult Function()? clearSelectedTags,
+    TResult Function(List<String> selectedTags)? saveSelectedTags,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +59,10 @@ mixin _$TagEvent {
     required TResult Function(_CreateTag value) createTag,
     required TResult Function(_UpdateTag value) updateTag,
     required TResult Function(_DeleteTag value) deleteTag,
+    required TResult Function(_SelectTag value) selectTag,
+    required TResult Function(_RemoveTag value) removeTag,
+    required TResult Function(_ClearSelectedTags value) clearSelectedTags,
+    required TResult Function(_SaveSelectedTags value) saveSelectedTags,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +71,10 @@ mixin _$TagEvent {
     TResult? Function(_CreateTag value)? createTag,
     TResult? Function(_UpdateTag value)? updateTag,
     TResult? Function(_DeleteTag value)? deleteTag,
+    TResult? Function(_SelectTag value)? selectTag,
+    TResult? Function(_RemoveTag value)? removeTag,
+    TResult? Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult? Function(_SaveSelectedTags value)? saveSelectedTags,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +83,10 @@ mixin _$TagEvent {
     TResult Function(_CreateTag value)? createTag,
     TResult Function(_UpdateTag value)? updateTag,
     TResult Function(_DeleteTag value)? deleteTag,
+    TResult Function(_SelectTag value)? selectTag,
+    TResult Function(_RemoveTag value)? removeTag,
+    TResult Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult Function(_SaveSelectedTags value)? saveSelectedTags,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +177,10 @@ class _$GetAllTagsImpl implements _GetAllTags {
     required TResult Function(CreateTagDto dto) createTag,
     required TResult Function(UpdateTagDto dto) updateTag,
     required TResult Function(DeleteTagDto dto) deleteTag,
+    required TResult Function(String tagId) selectTag,
+    required TResult Function(String tagId) removeTag,
+    required TResult Function() clearSelectedTags,
+    required TResult Function(List<String> selectedTags) saveSelectedTags,
   }) {
     return getAllTags(dto);
   }
@@ -165,6 +192,10 @@ class _$GetAllTagsImpl implements _GetAllTags {
     TResult? Function(CreateTagDto dto)? createTag,
     TResult? Function(UpdateTagDto dto)? updateTag,
     TResult? Function(DeleteTagDto dto)? deleteTag,
+    TResult? Function(String tagId)? selectTag,
+    TResult? Function(String tagId)? removeTag,
+    TResult? Function()? clearSelectedTags,
+    TResult? Function(List<String> selectedTags)? saveSelectedTags,
   }) {
     return getAllTags?.call(dto);
   }
@@ -176,6 +207,10 @@ class _$GetAllTagsImpl implements _GetAllTags {
     TResult Function(CreateTagDto dto)? createTag,
     TResult Function(UpdateTagDto dto)? updateTag,
     TResult Function(DeleteTagDto dto)? deleteTag,
+    TResult Function(String tagId)? selectTag,
+    TResult Function(String tagId)? removeTag,
+    TResult Function()? clearSelectedTags,
+    TResult Function(List<String> selectedTags)? saveSelectedTags,
     required TResult orElse(),
   }) {
     if (getAllTags != null) {
@@ -191,6 +226,10 @@ class _$GetAllTagsImpl implements _GetAllTags {
     required TResult Function(_CreateTag value) createTag,
     required TResult Function(_UpdateTag value) updateTag,
     required TResult Function(_DeleteTag value) deleteTag,
+    required TResult Function(_SelectTag value) selectTag,
+    required TResult Function(_RemoveTag value) removeTag,
+    required TResult Function(_ClearSelectedTags value) clearSelectedTags,
+    required TResult Function(_SaveSelectedTags value) saveSelectedTags,
   }) {
     return getAllTags(this);
   }
@@ -202,6 +241,10 @@ class _$GetAllTagsImpl implements _GetAllTags {
     TResult? Function(_CreateTag value)? createTag,
     TResult? Function(_UpdateTag value)? updateTag,
     TResult? Function(_DeleteTag value)? deleteTag,
+    TResult? Function(_SelectTag value)? selectTag,
+    TResult? Function(_RemoveTag value)? removeTag,
+    TResult? Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult? Function(_SaveSelectedTags value)? saveSelectedTags,
   }) {
     return getAllTags?.call(this);
   }
@@ -213,6 +256,10 @@ class _$GetAllTagsImpl implements _GetAllTags {
     TResult Function(_CreateTag value)? createTag,
     TResult Function(_UpdateTag value)? updateTag,
     TResult Function(_DeleteTag value)? deleteTag,
+    TResult Function(_SelectTag value)? selectTag,
+    TResult Function(_RemoveTag value)? removeTag,
+    TResult Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult Function(_SaveSelectedTags value)? saveSelectedTags,
     required TResult orElse(),
   }) {
     if (getAllTags != null) {
@@ -226,7 +273,6 @@ abstract class _GetAllTags implements TagEvent {
   const factory _GetAllTags({required final GetAllTagsDto dto}) =
       _$GetAllTagsImpl;
 
-  @override
   GetAllTagsDto get dto;
   @JsonKey(ignore: true)
   _$$GetAllTagsImplCopyWith<_$GetAllTagsImpl> get copyWith =>
@@ -301,6 +347,10 @@ class _$CreateTagImpl implements _CreateTag {
     required TResult Function(CreateTagDto dto) createTag,
     required TResult Function(UpdateTagDto dto) updateTag,
     required TResult Function(DeleteTagDto dto) deleteTag,
+    required TResult Function(String tagId) selectTag,
+    required TResult Function(String tagId) removeTag,
+    required TResult Function() clearSelectedTags,
+    required TResult Function(List<String> selectedTags) saveSelectedTags,
   }) {
     return createTag(dto);
   }
@@ -312,6 +362,10 @@ class _$CreateTagImpl implements _CreateTag {
     TResult? Function(CreateTagDto dto)? createTag,
     TResult? Function(UpdateTagDto dto)? updateTag,
     TResult? Function(DeleteTagDto dto)? deleteTag,
+    TResult? Function(String tagId)? selectTag,
+    TResult? Function(String tagId)? removeTag,
+    TResult? Function()? clearSelectedTags,
+    TResult? Function(List<String> selectedTags)? saveSelectedTags,
   }) {
     return createTag?.call(dto);
   }
@@ -323,6 +377,10 @@ class _$CreateTagImpl implements _CreateTag {
     TResult Function(CreateTagDto dto)? createTag,
     TResult Function(UpdateTagDto dto)? updateTag,
     TResult Function(DeleteTagDto dto)? deleteTag,
+    TResult Function(String tagId)? selectTag,
+    TResult Function(String tagId)? removeTag,
+    TResult Function()? clearSelectedTags,
+    TResult Function(List<String> selectedTags)? saveSelectedTags,
     required TResult orElse(),
   }) {
     if (createTag != null) {
@@ -338,6 +396,10 @@ class _$CreateTagImpl implements _CreateTag {
     required TResult Function(_CreateTag value) createTag,
     required TResult Function(_UpdateTag value) updateTag,
     required TResult Function(_DeleteTag value) deleteTag,
+    required TResult Function(_SelectTag value) selectTag,
+    required TResult Function(_RemoveTag value) removeTag,
+    required TResult Function(_ClearSelectedTags value) clearSelectedTags,
+    required TResult Function(_SaveSelectedTags value) saveSelectedTags,
   }) {
     return createTag(this);
   }
@@ -349,6 +411,10 @@ class _$CreateTagImpl implements _CreateTag {
     TResult? Function(_CreateTag value)? createTag,
     TResult? Function(_UpdateTag value)? updateTag,
     TResult? Function(_DeleteTag value)? deleteTag,
+    TResult? Function(_SelectTag value)? selectTag,
+    TResult? Function(_RemoveTag value)? removeTag,
+    TResult? Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult? Function(_SaveSelectedTags value)? saveSelectedTags,
   }) {
     return createTag?.call(this);
   }
@@ -360,6 +426,10 @@ class _$CreateTagImpl implements _CreateTag {
     TResult Function(_CreateTag value)? createTag,
     TResult Function(_UpdateTag value)? updateTag,
     TResult Function(_DeleteTag value)? deleteTag,
+    TResult Function(_SelectTag value)? selectTag,
+    TResult Function(_RemoveTag value)? removeTag,
+    TResult Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult Function(_SaveSelectedTags value)? saveSelectedTags,
     required TResult orElse(),
   }) {
     if (createTag != null) {
@@ -372,7 +442,6 @@ class _$CreateTagImpl implements _CreateTag {
 abstract class _CreateTag implements TagEvent {
   const factory _CreateTag({required final CreateTagDto dto}) = _$CreateTagImpl;
 
-  @override
   CreateTagDto get dto;
   @JsonKey(ignore: true)
   _$$CreateTagImplCopyWith<_$CreateTagImpl> get copyWith =>
@@ -447,6 +516,10 @@ class _$UpdateTagImpl implements _UpdateTag {
     required TResult Function(CreateTagDto dto) createTag,
     required TResult Function(UpdateTagDto dto) updateTag,
     required TResult Function(DeleteTagDto dto) deleteTag,
+    required TResult Function(String tagId) selectTag,
+    required TResult Function(String tagId) removeTag,
+    required TResult Function() clearSelectedTags,
+    required TResult Function(List<String> selectedTags) saveSelectedTags,
   }) {
     return updateTag(dto);
   }
@@ -458,6 +531,10 @@ class _$UpdateTagImpl implements _UpdateTag {
     TResult? Function(CreateTagDto dto)? createTag,
     TResult? Function(UpdateTagDto dto)? updateTag,
     TResult? Function(DeleteTagDto dto)? deleteTag,
+    TResult? Function(String tagId)? selectTag,
+    TResult? Function(String tagId)? removeTag,
+    TResult? Function()? clearSelectedTags,
+    TResult? Function(List<String> selectedTags)? saveSelectedTags,
   }) {
     return updateTag?.call(dto);
   }
@@ -469,6 +546,10 @@ class _$UpdateTagImpl implements _UpdateTag {
     TResult Function(CreateTagDto dto)? createTag,
     TResult Function(UpdateTagDto dto)? updateTag,
     TResult Function(DeleteTagDto dto)? deleteTag,
+    TResult Function(String tagId)? selectTag,
+    TResult Function(String tagId)? removeTag,
+    TResult Function()? clearSelectedTags,
+    TResult Function(List<String> selectedTags)? saveSelectedTags,
     required TResult orElse(),
   }) {
     if (updateTag != null) {
@@ -484,6 +565,10 @@ class _$UpdateTagImpl implements _UpdateTag {
     required TResult Function(_CreateTag value) createTag,
     required TResult Function(_UpdateTag value) updateTag,
     required TResult Function(_DeleteTag value) deleteTag,
+    required TResult Function(_SelectTag value) selectTag,
+    required TResult Function(_RemoveTag value) removeTag,
+    required TResult Function(_ClearSelectedTags value) clearSelectedTags,
+    required TResult Function(_SaveSelectedTags value) saveSelectedTags,
   }) {
     return updateTag(this);
   }
@@ -495,6 +580,10 @@ class _$UpdateTagImpl implements _UpdateTag {
     TResult? Function(_CreateTag value)? createTag,
     TResult? Function(_UpdateTag value)? updateTag,
     TResult? Function(_DeleteTag value)? deleteTag,
+    TResult? Function(_SelectTag value)? selectTag,
+    TResult? Function(_RemoveTag value)? removeTag,
+    TResult? Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult? Function(_SaveSelectedTags value)? saveSelectedTags,
   }) {
     return updateTag?.call(this);
   }
@@ -506,6 +595,10 @@ class _$UpdateTagImpl implements _UpdateTag {
     TResult Function(_CreateTag value)? createTag,
     TResult Function(_UpdateTag value)? updateTag,
     TResult Function(_DeleteTag value)? deleteTag,
+    TResult Function(_SelectTag value)? selectTag,
+    TResult Function(_RemoveTag value)? removeTag,
+    TResult Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult Function(_SaveSelectedTags value)? saveSelectedTags,
     required TResult orElse(),
   }) {
     if (updateTag != null) {
@@ -518,7 +611,6 @@ class _$UpdateTagImpl implements _UpdateTag {
 abstract class _UpdateTag implements TagEvent {
   const factory _UpdateTag({required final UpdateTagDto dto}) = _$UpdateTagImpl;
 
-  @override
   UpdateTagDto get dto;
   @JsonKey(ignore: true)
   _$$UpdateTagImplCopyWith<_$UpdateTagImpl> get copyWith =>
@@ -593,6 +685,10 @@ class _$DeleteTagImpl implements _DeleteTag {
     required TResult Function(CreateTagDto dto) createTag,
     required TResult Function(UpdateTagDto dto) updateTag,
     required TResult Function(DeleteTagDto dto) deleteTag,
+    required TResult Function(String tagId) selectTag,
+    required TResult Function(String tagId) removeTag,
+    required TResult Function() clearSelectedTags,
+    required TResult Function(List<String> selectedTags) saveSelectedTags,
   }) {
     return deleteTag(dto);
   }
@@ -604,6 +700,10 @@ class _$DeleteTagImpl implements _DeleteTag {
     TResult? Function(CreateTagDto dto)? createTag,
     TResult? Function(UpdateTagDto dto)? updateTag,
     TResult? Function(DeleteTagDto dto)? deleteTag,
+    TResult? Function(String tagId)? selectTag,
+    TResult? Function(String tagId)? removeTag,
+    TResult? Function()? clearSelectedTags,
+    TResult? Function(List<String> selectedTags)? saveSelectedTags,
   }) {
     return deleteTag?.call(dto);
   }
@@ -615,6 +715,10 @@ class _$DeleteTagImpl implements _DeleteTag {
     TResult Function(CreateTagDto dto)? createTag,
     TResult Function(UpdateTagDto dto)? updateTag,
     TResult Function(DeleteTagDto dto)? deleteTag,
+    TResult Function(String tagId)? selectTag,
+    TResult Function(String tagId)? removeTag,
+    TResult Function()? clearSelectedTags,
+    TResult Function(List<String> selectedTags)? saveSelectedTags,
     required TResult orElse(),
   }) {
     if (deleteTag != null) {
@@ -630,6 +734,10 @@ class _$DeleteTagImpl implements _DeleteTag {
     required TResult Function(_CreateTag value) createTag,
     required TResult Function(_UpdateTag value) updateTag,
     required TResult Function(_DeleteTag value) deleteTag,
+    required TResult Function(_SelectTag value) selectTag,
+    required TResult Function(_RemoveTag value) removeTag,
+    required TResult Function(_ClearSelectedTags value) clearSelectedTags,
+    required TResult Function(_SaveSelectedTags value) saveSelectedTags,
   }) {
     return deleteTag(this);
   }
@@ -641,6 +749,10 @@ class _$DeleteTagImpl implements _DeleteTag {
     TResult? Function(_CreateTag value)? createTag,
     TResult? Function(_UpdateTag value)? updateTag,
     TResult? Function(_DeleteTag value)? deleteTag,
+    TResult? Function(_SelectTag value)? selectTag,
+    TResult? Function(_RemoveTag value)? removeTag,
+    TResult? Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult? Function(_SaveSelectedTags value)? saveSelectedTags,
   }) {
     return deleteTag?.call(this);
   }
@@ -652,6 +764,10 @@ class _$DeleteTagImpl implements _DeleteTag {
     TResult Function(_CreateTag value)? createTag,
     TResult Function(_UpdateTag value)? updateTag,
     TResult Function(_DeleteTag value)? deleteTag,
+    TResult Function(_SelectTag value)? selectTag,
+    TResult Function(_RemoveTag value)? removeTag,
+    TResult Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult Function(_SaveSelectedTags value)? saveSelectedTags,
     required TResult orElse(),
   }) {
     if (deleteTag != null) {
@@ -664,10 +780,664 @@ class _$DeleteTagImpl implements _DeleteTag {
 abstract class _DeleteTag implements TagEvent {
   const factory _DeleteTag({required final DeleteTagDto dto}) = _$DeleteTagImpl;
 
-  @override
   DeleteTagDto get dto;
   @JsonKey(ignore: true)
   _$$DeleteTagImplCopyWith<_$DeleteTagImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectTagImplCopyWith<$Res> {
+  factory _$$SelectTagImplCopyWith(
+          _$SelectTagImpl value, $Res Function(_$SelectTagImpl) then) =
+      __$$SelectTagImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String tagId});
+}
+
+/// @nodoc
+class __$$SelectTagImplCopyWithImpl<$Res>
+    extends _$TagEventCopyWithImpl<$Res, _$SelectTagImpl>
+    implements _$$SelectTagImplCopyWith<$Res> {
+  __$$SelectTagImplCopyWithImpl(
+      _$SelectTagImpl _value, $Res Function(_$SelectTagImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? tagId = null,
+  }) {
+    return _then(_$SelectTagImpl(
+      tagId: null == tagId
+          ? _value.tagId
+          : tagId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SelectTagImpl implements _SelectTag {
+  const _$SelectTagImpl({required this.tagId});
+
+  @override
+  final String tagId;
+
+  @override
+  String toString() {
+    return 'TagEvent.selectTag(tagId: $tagId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectTagImpl &&
+            (identical(other.tagId, tagId) || other.tagId == tagId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, tagId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectTagImplCopyWith<_$SelectTagImpl> get copyWith =>
+      __$$SelectTagImplCopyWithImpl<_$SelectTagImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GetAllTagsDto dto) getAllTags,
+    required TResult Function(CreateTagDto dto) createTag,
+    required TResult Function(UpdateTagDto dto) updateTag,
+    required TResult Function(DeleteTagDto dto) deleteTag,
+    required TResult Function(String tagId) selectTag,
+    required TResult Function(String tagId) removeTag,
+    required TResult Function() clearSelectedTags,
+    required TResult Function(List<String> selectedTags) saveSelectedTags,
+  }) {
+    return selectTag(tagId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(GetAllTagsDto dto)? getAllTags,
+    TResult? Function(CreateTagDto dto)? createTag,
+    TResult? Function(UpdateTagDto dto)? updateTag,
+    TResult? Function(DeleteTagDto dto)? deleteTag,
+    TResult? Function(String tagId)? selectTag,
+    TResult? Function(String tagId)? removeTag,
+    TResult? Function()? clearSelectedTags,
+    TResult? Function(List<String> selectedTags)? saveSelectedTags,
+  }) {
+    return selectTag?.call(tagId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GetAllTagsDto dto)? getAllTags,
+    TResult Function(CreateTagDto dto)? createTag,
+    TResult Function(UpdateTagDto dto)? updateTag,
+    TResult Function(DeleteTagDto dto)? deleteTag,
+    TResult Function(String tagId)? selectTag,
+    TResult Function(String tagId)? removeTag,
+    TResult Function()? clearSelectedTags,
+    TResult Function(List<String> selectedTags)? saveSelectedTags,
+    required TResult orElse(),
+  }) {
+    if (selectTag != null) {
+      return selectTag(tagId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAllTags value) getAllTags,
+    required TResult Function(_CreateTag value) createTag,
+    required TResult Function(_UpdateTag value) updateTag,
+    required TResult Function(_DeleteTag value) deleteTag,
+    required TResult Function(_SelectTag value) selectTag,
+    required TResult Function(_RemoveTag value) removeTag,
+    required TResult Function(_ClearSelectedTags value) clearSelectedTags,
+    required TResult Function(_SaveSelectedTags value) saveSelectedTags,
+  }) {
+    return selectTag(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAllTags value)? getAllTags,
+    TResult? Function(_CreateTag value)? createTag,
+    TResult? Function(_UpdateTag value)? updateTag,
+    TResult? Function(_DeleteTag value)? deleteTag,
+    TResult? Function(_SelectTag value)? selectTag,
+    TResult? Function(_RemoveTag value)? removeTag,
+    TResult? Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult? Function(_SaveSelectedTags value)? saveSelectedTags,
+  }) {
+    return selectTag?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAllTags value)? getAllTags,
+    TResult Function(_CreateTag value)? createTag,
+    TResult Function(_UpdateTag value)? updateTag,
+    TResult Function(_DeleteTag value)? deleteTag,
+    TResult Function(_SelectTag value)? selectTag,
+    TResult Function(_RemoveTag value)? removeTag,
+    TResult Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult Function(_SaveSelectedTags value)? saveSelectedTags,
+    required TResult orElse(),
+  }) {
+    if (selectTag != null) {
+      return selectTag(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectTag implements TagEvent {
+  const factory _SelectTag({required final String tagId}) = _$SelectTagImpl;
+
+  String get tagId;
+  @JsonKey(ignore: true)
+  _$$SelectTagImplCopyWith<_$SelectTagImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveTagImplCopyWith<$Res> {
+  factory _$$RemoveTagImplCopyWith(
+          _$RemoveTagImpl value, $Res Function(_$RemoveTagImpl) then) =
+      __$$RemoveTagImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String tagId});
+}
+
+/// @nodoc
+class __$$RemoveTagImplCopyWithImpl<$Res>
+    extends _$TagEventCopyWithImpl<$Res, _$RemoveTagImpl>
+    implements _$$RemoveTagImplCopyWith<$Res> {
+  __$$RemoveTagImplCopyWithImpl(
+      _$RemoveTagImpl _value, $Res Function(_$RemoveTagImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? tagId = null,
+  }) {
+    return _then(_$RemoveTagImpl(
+      tagId: null == tagId
+          ? _value.tagId
+          : tagId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveTagImpl implements _RemoveTag {
+  const _$RemoveTagImpl({required this.tagId});
+
+  @override
+  final String tagId;
+
+  @override
+  String toString() {
+    return 'TagEvent.removeTag(tagId: $tagId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveTagImpl &&
+            (identical(other.tagId, tagId) || other.tagId == tagId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, tagId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveTagImplCopyWith<_$RemoveTagImpl> get copyWith =>
+      __$$RemoveTagImplCopyWithImpl<_$RemoveTagImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GetAllTagsDto dto) getAllTags,
+    required TResult Function(CreateTagDto dto) createTag,
+    required TResult Function(UpdateTagDto dto) updateTag,
+    required TResult Function(DeleteTagDto dto) deleteTag,
+    required TResult Function(String tagId) selectTag,
+    required TResult Function(String tagId) removeTag,
+    required TResult Function() clearSelectedTags,
+    required TResult Function(List<String> selectedTags) saveSelectedTags,
+  }) {
+    return removeTag(tagId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(GetAllTagsDto dto)? getAllTags,
+    TResult? Function(CreateTagDto dto)? createTag,
+    TResult? Function(UpdateTagDto dto)? updateTag,
+    TResult? Function(DeleteTagDto dto)? deleteTag,
+    TResult? Function(String tagId)? selectTag,
+    TResult? Function(String tagId)? removeTag,
+    TResult? Function()? clearSelectedTags,
+    TResult? Function(List<String> selectedTags)? saveSelectedTags,
+  }) {
+    return removeTag?.call(tagId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GetAllTagsDto dto)? getAllTags,
+    TResult Function(CreateTagDto dto)? createTag,
+    TResult Function(UpdateTagDto dto)? updateTag,
+    TResult Function(DeleteTagDto dto)? deleteTag,
+    TResult Function(String tagId)? selectTag,
+    TResult Function(String tagId)? removeTag,
+    TResult Function()? clearSelectedTags,
+    TResult Function(List<String> selectedTags)? saveSelectedTags,
+    required TResult orElse(),
+  }) {
+    if (removeTag != null) {
+      return removeTag(tagId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAllTags value) getAllTags,
+    required TResult Function(_CreateTag value) createTag,
+    required TResult Function(_UpdateTag value) updateTag,
+    required TResult Function(_DeleteTag value) deleteTag,
+    required TResult Function(_SelectTag value) selectTag,
+    required TResult Function(_RemoveTag value) removeTag,
+    required TResult Function(_ClearSelectedTags value) clearSelectedTags,
+    required TResult Function(_SaveSelectedTags value) saveSelectedTags,
+  }) {
+    return removeTag(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAllTags value)? getAllTags,
+    TResult? Function(_CreateTag value)? createTag,
+    TResult? Function(_UpdateTag value)? updateTag,
+    TResult? Function(_DeleteTag value)? deleteTag,
+    TResult? Function(_SelectTag value)? selectTag,
+    TResult? Function(_RemoveTag value)? removeTag,
+    TResult? Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult? Function(_SaveSelectedTags value)? saveSelectedTags,
+  }) {
+    return removeTag?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAllTags value)? getAllTags,
+    TResult Function(_CreateTag value)? createTag,
+    TResult Function(_UpdateTag value)? updateTag,
+    TResult Function(_DeleteTag value)? deleteTag,
+    TResult Function(_SelectTag value)? selectTag,
+    TResult Function(_RemoveTag value)? removeTag,
+    TResult Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult Function(_SaveSelectedTags value)? saveSelectedTags,
+    required TResult orElse(),
+  }) {
+    if (removeTag != null) {
+      return removeTag(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveTag implements TagEvent {
+  const factory _RemoveTag({required final String tagId}) = _$RemoveTagImpl;
+
+  String get tagId;
+  @JsonKey(ignore: true)
+  _$$RemoveTagImplCopyWith<_$RemoveTagImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ClearSelectedTagsImplCopyWith<$Res> {
+  factory _$$ClearSelectedTagsImplCopyWith(_$ClearSelectedTagsImpl value,
+          $Res Function(_$ClearSelectedTagsImpl) then) =
+      __$$ClearSelectedTagsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ClearSelectedTagsImplCopyWithImpl<$Res>
+    extends _$TagEventCopyWithImpl<$Res, _$ClearSelectedTagsImpl>
+    implements _$$ClearSelectedTagsImplCopyWith<$Res> {
+  __$$ClearSelectedTagsImplCopyWithImpl(_$ClearSelectedTagsImpl _value,
+      $Res Function(_$ClearSelectedTagsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ClearSelectedTagsImpl implements _ClearSelectedTags {
+  const _$ClearSelectedTagsImpl();
+
+  @override
+  String toString() {
+    return 'TagEvent.clearSelectedTags()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ClearSelectedTagsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GetAllTagsDto dto) getAllTags,
+    required TResult Function(CreateTagDto dto) createTag,
+    required TResult Function(UpdateTagDto dto) updateTag,
+    required TResult Function(DeleteTagDto dto) deleteTag,
+    required TResult Function(String tagId) selectTag,
+    required TResult Function(String tagId) removeTag,
+    required TResult Function() clearSelectedTags,
+    required TResult Function(List<String> selectedTags) saveSelectedTags,
+  }) {
+    return clearSelectedTags();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(GetAllTagsDto dto)? getAllTags,
+    TResult? Function(CreateTagDto dto)? createTag,
+    TResult? Function(UpdateTagDto dto)? updateTag,
+    TResult? Function(DeleteTagDto dto)? deleteTag,
+    TResult? Function(String tagId)? selectTag,
+    TResult? Function(String tagId)? removeTag,
+    TResult? Function()? clearSelectedTags,
+    TResult? Function(List<String> selectedTags)? saveSelectedTags,
+  }) {
+    return clearSelectedTags?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GetAllTagsDto dto)? getAllTags,
+    TResult Function(CreateTagDto dto)? createTag,
+    TResult Function(UpdateTagDto dto)? updateTag,
+    TResult Function(DeleteTagDto dto)? deleteTag,
+    TResult Function(String tagId)? selectTag,
+    TResult Function(String tagId)? removeTag,
+    TResult Function()? clearSelectedTags,
+    TResult Function(List<String> selectedTags)? saveSelectedTags,
+    required TResult orElse(),
+  }) {
+    if (clearSelectedTags != null) {
+      return clearSelectedTags();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAllTags value) getAllTags,
+    required TResult Function(_CreateTag value) createTag,
+    required TResult Function(_UpdateTag value) updateTag,
+    required TResult Function(_DeleteTag value) deleteTag,
+    required TResult Function(_SelectTag value) selectTag,
+    required TResult Function(_RemoveTag value) removeTag,
+    required TResult Function(_ClearSelectedTags value) clearSelectedTags,
+    required TResult Function(_SaveSelectedTags value) saveSelectedTags,
+  }) {
+    return clearSelectedTags(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAllTags value)? getAllTags,
+    TResult? Function(_CreateTag value)? createTag,
+    TResult? Function(_UpdateTag value)? updateTag,
+    TResult? Function(_DeleteTag value)? deleteTag,
+    TResult? Function(_SelectTag value)? selectTag,
+    TResult? Function(_RemoveTag value)? removeTag,
+    TResult? Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult? Function(_SaveSelectedTags value)? saveSelectedTags,
+  }) {
+    return clearSelectedTags?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAllTags value)? getAllTags,
+    TResult Function(_CreateTag value)? createTag,
+    TResult Function(_UpdateTag value)? updateTag,
+    TResult Function(_DeleteTag value)? deleteTag,
+    TResult Function(_SelectTag value)? selectTag,
+    TResult Function(_RemoveTag value)? removeTag,
+    TResult Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult Function(_SaveSelectedTags value)? saveSelectedTags,
+    required TResult orElse(),
+  }) {
+    if (clearSelectedTags != null) {
+      return clearSelectedTags(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ClearSelectedTags implements TagEvent {
+  const factory _ClearSelectedTags() = _$ClearSelectedTagsImpl;
+}
+
+/// @nodoc
+abstract class _$$SaveSelectedTagsImplCopyWith<$Res> {
+  factory _$$SaveSelectedTagsImplCopyWith(_$SaveSelectedTagsImpl value,
+          $Res Function(_$SaveSelectedTagsImpl) then) =
+      __$$SaveSelectedTagsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String> selectedTags});
+}
+
+/// @nodoc
+class __$$SaveSelectedTagsImplCopyWithImpl<$Res>
+    extends _$TagEventCopyWithImpl<$Res, _$SaveSelectedTagsImpl>
+    implements _$$SaveSelectedTagsImplCopyWith<$Res> {
+  __$$SaveSelectedTagsImplCopyWithImpl(_$SaveSelectedTagsImpl _value,
+      $Res Function(_$SaveSelectedTagsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedTags = null,
+  }) {
+    return _then(_$SaveSelectedTagsImpl(
+      selectedTags: null == selectedTags
+          ? _value._selectedTags
+          : selectedTags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveSelectedTagsImpl implements _SaveSelectedTags {
+  const _$SaveSelectedTagsImpl({required final List<String> selectedTags})
+      : _selectedTags = selectedTags;
+
+  final List<String> _selectedTags;
+  @override
+  List<String> get selectedTags {
+    if (_selectedTags is EqualUnmodifiableListView) return _selectedTags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedTags);
+  }
+
+  @override
+  String toString() {
+    return 'TagEvent.saveSelectedTags(selectedTags: $selectedTags)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveSelectedTagsImpl &&
+            const DeepCollectionEquality()
+                .equals(other._selectedTags, _selectedTags));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_selectedTags));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveSelectedTagsImplCopyWith<_$SaveSelectedTagsImpl> get copyWith =>
+      __$$SaveSelectedTagsImplCopyWithImpl<_$SaveSelectedTagsImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GetAllTagsDto dto) getAllTags,
+    required TResult Function(CreateTagDto dto) createTag,
+    required TResult Function(UpdateTagDto dto) updateTag,
+    required TResult Function(DeleteTagDto dto) deleteTag,
+    required TResult Function(String tagId) selectTag,
+    required TResult Function(String tagId) removeTag,
+    required TResult Function() clearSelectedTags,
+    required TResult Function(List<String> selectedTags) saveSelectedTags,
+  }) {
+    return saveSelectedTags(selectedTags);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(GetAllTagsDto dto)? getAllTags,
+    TResult? Function(CreateTagDto dto)? createTag,
+    TResult? Function(UpdateTagDto dto)? updateTag,
+    TResult? Function(DeleteTagDto dto)? deleteTag,
+    TResult? Function(String tagId)? selectTag,
+    TResult? Function(String tagId)? removeTag,
+    TResult? Function()? clearSelectedTags,
+    TResult? Function(List<String> selectedTags)? saveSelectedTags,
+  }) {
+    return saveSelectedTags?.call(selectedTags);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GetAllTagsDto dto)? getAllTags,
+    TResult Function(CreateTagDto dto)? createTag,
+    TResult Function(UpdateTagDto dto)? updateTag,
+    TResult Function(DeleteTagDto dto)? deleteTag,
+    TResult Function(String tagId)? selectTag,
+    TResult Function(String tagId)? removeTag,
+    TResult Function()? clearSelectedTags,
+    TResult Function(List<String> selectedTags)? saveSelectedTags,
+    required TResult orElse(),
+  }) {
+    if (saveSelectedTags != null) {
+      return saveSelectedTags(selectedTags);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAllTags value) getAllTags,
+    required TResult Function(_CreateTag value) createTag,
+    required TResult Function(_UpdateTag value) updateTag,
+    required TResult Function(_DeleteTag value) deleteTag,
+    required TResult Function(_SelectTag value) selectTag,
+    required TResult Function(_RemoveTag value) removeTag,
+    required TResult Function(_ClearSelectedTags value) clearSelectedTags,
+    required TResult Function(_SaveSelectedTags value) saveSelectedTags,
+  }) {
+    return saveSelectedTags(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAllTags value)? getAllTags,
+    TResult? Function(_CreateTag value)? createTag,
+    TResult? Function(_UpdateTag value)? updateTag,
+    TResult? Function(_DeleteTag value)? deleteTag,
+    TResult? Function(_SelectTag value)? selectTag,
+    TResult? Function(_RemoveTag value)? removeTag,
+    TResult? Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult? Function(_SaveSelectedTags value)? saveSelectedTags,
+  }) {
+    return saveSelectedTags?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAllTags value)? getAllTags,
+    TResult Function(_CreateTag value)? createTag,
+    TResult Function(_UpdateTag value)? updateTag,
+    TResult Function(_DeleteTag value)? deleteTag,
+    TResult Function(_SelectTag value)? selectTag,
+    TResult Function(_RemoveTag value)? removeTag,
+    TResult Function(_ClearSelectedTags value)? clearSelectedTags,
+    TResult Function(_SaveSelectedTags value)? saveSelectedTags,
+    required TResult orElse(),
+  }) {
+    if (saveSelectedTags != null) {
+      return saveSelectedTags(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveSelectedTags implements TagEvent {
+  const factory _SaveSelectedTags({required final List<String> selectedTags}) =
+      _$SaveSelectedTagsImpl;
+
+  List<String> get selectedTags;
+  @JsonKey(ignore: true)
+  _$$SaveSelectedTagsImplCopyWith<_$SaveSelectedTagsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -680,6 +1450,7 @@ mixin _$TagState {
   List<TagEntity> get expenseTags => throw _privateConstructorUsedError;
   bool get retrieved => throw _privateConstructorUsedError;
   bool get added => throw _privateConstructorUsedError;
+  List<String> get selectedTags => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TagStateCopyWith<TagState> get copyWith =>
@@ -698,7 +1469,8 @@ abstract class $TagStateCopyWith<$Res> {
       List<TagEntity> incomeTags,
       List<TagEntity> expenseTags,
       bool retrieved,
-      bool added});
+      bool added,
+      List<String> selectedTags});
 }
 
 /// @nodoc
@@ -721,6 +1493,7 @@ class _$TagStateCopyWithImpl<$Res, $Val extends TagState>
     Object? expenseTags = null,
     Object? retrieved = null,
     Object? added = null,
+    Object? selectedTags = null,
   }) {
     return _then(_value.copyWith(
       stateStatus: null == stateStatus
@@ -751,6 +1524,10 @@ class _$TagStateCopyWithImpl<$Res, $Val extends TagState>
           ? _value.added
           : added // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedTags: null == selectedTags
+          ? _value.selectedTags
+          : selectedTags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -770,7 +1547,8 @@ abstract class _$$TagStateImplCopyWith<$Res>
       List<TagEntity> incomeTags,
       List<TagEntity> expenseTags,
       bool retrieved,
-      bool added});
+      bool added,
+      List<String> selectedTags});
 }
 
 /// @nodoc
@@ -791,6 +1569,7 @@ class __$$TagStateImplCopyWithImpl<$Res>
     Object? expenseTags = null,
     Object? retrieved = null,
     Object? added = null,
+    Object? selectedTags = null,
   }) {
     return _then(_$TagStateImpl(
       stateStatus: null == stateStatus
@@ -821,6 +1600,10 @@ class __$$TagStateImplCopyWithImpl<$Res>
           ? _value.added
           : added // ignore: cast_nullable_to_non_nullable
               as bool,
+      selectedTags: null == selectedTags
+          ? _value._selectedTags
+          : selectedTags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -835,9 +1618,11 @@ class _$TagStateImpl implements _TagState {
       required final List<TagEntity> incomeTags,
       required final List<TagEntity> expenseTags,
       required this.retrieved,
-      required this.added})
+      required this.added,
+      required final List<String> selectedTags})
       : _incomeTags = incomeTags,
-        _expenseTags = expenseTags;
+        _expenseTags = expenseTags,
+        _selectedTags = selectedTags;
 
   @override
   final StateStatus stateStatus;
@@ -865,10 +1650,17 @@ class _$TagStateImpl implements _TagState {
   final bool retrieved;
   @override
   final bool added;
+  final List<String> _selectedTags;
+  @override
+  List<String> get selectedTags {
+    if (_selectedTags is EqualUnmodifiableListView) return _selectedTags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedTags);
+  }
 
   @override
   String toString() {
-    return 'TagState(stateStatus: $stateStatus, errorMessage: $errorMessage, successMessage: $successMessage, incomeTags: $incomeTags, expenseTags: $expenseTags, retrieved: $retrieved, added: $added)';
+    return 'TagState(stateStatus: $stateStatus, errorMessage: $errorMessage, successMessage: $successMessage, incomeTags: $incomeTags, expenseTags: $expenseTags, retrieved: $retrieved, added: $added, selectedTags: $selectedTags)';
   }
 
   @override
@@ -888,7 +1680,9 @@ class _$TagStateImpl implements _TagState {
                 .equals(other._expenseTags, _expenseTags) &&
             (identical(other.retrieved, retrieved) ||
                 other.retrieved == retrieved) &&
-            (identical(other.added, added) || other.added == added));
+            (identical(other.added, added) || other.added == added) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedTags, _selectedTags));
   }
 
   @override
@@ -900,7 +1694,8 @@ class _$TagStateImpl implements _TagState {
       const DeepCollectionEquality().hash(_incomeTags),
       const DeepCollectionEquality().hash(_expenseTags),
       retrieved,
-      added);
+      added,
+      const DeepCollectionEquality().hash(_selectedTags));
 
   @JsonKey(ignore: true)
   @override
@@ -917,7 +1712,8 @@ abstract class _TagState implements TagState {
       required final List<TagEntity> incomeTags,
       required final List<TagEntity> expenseTags,
       required final bool retrieved,
-      required final bool added}) = _$TagStateImpl;
+      required final bool added,
+      required final List<String> selectedTags}) = _$TagStateImpl;
 
   @override
   StateStatus get stateStatus;
@@ -933,6 +1729,8 @@ abstract class _TagState implements TagState {
   bool get retrieved;
   @override
   bool get added;
+  @override
+  List<String> get selectedTags;
   @override
   @JsonKey(ignore: true)
   _$$TagStateImplCopyWith<_$TagStateImpl> get copyWith =>

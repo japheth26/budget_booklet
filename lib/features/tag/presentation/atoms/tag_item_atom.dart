@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hani/core/color/color_theme.dart';
+import 'package:hani/core/color/custom_color.dart';
 
 class TagItemAtom extends StatelessWidget {
   const TagItemAtom({
     super.key,
+    this.isSelecting = false,
+    this.isSelected = false,
     this.name,
     this.color,
     this.onTap,
+    this.onSelect,
   });
 
+  final bool isSelecting;
+  final bool isSelected;
   final Color? color;
   final String? name;
 
   final void Function()? onTap;
+  final void Function()? onSelect;
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +39,25 @@ class TagItemAtom extends StatelessWidget {
       ),
       margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
       child: ListTile(
-        onTap: onTap,
+        onTap: isSelecting ? onSelect : onTap,
         leading: FaIcon(
           FontAwesomeIcons.solidSquare,
           color: color,
         ),
         title: Text(name ?? ''),
-        trailing: const FaIcon(
-          FontAwesomeIcons.chevronRight,
-        ),
+        trailing: !isSelecting
+            ? const FaIcon(
+                FontAwesomeIcons.chevronRight,
+              )
+            : Checkbox(
+                value: isSelected,
+                activeColor: CustomColor.primaryGreen,
+                onChanged: (value) {
+                  if (onSelect != null) {
+                    onSelect!();
+                  }
+                },
+              ),
       ),
     );
   }

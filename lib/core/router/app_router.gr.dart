@@ -115,10 +115,19 @@ class BudgetRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [CategoryFormPage]
-class CategoryFormRoute extends PageRouteInfo<void> {
-  const CategoryFormRoute({List<PageRouteInfo>? children})
-      : super(
+class CategoryFormRoute extends PageRouteInfo<CategoryFormRouteArgs> {
+  CategoryFormRoute({
+    Key? key,
+    required String transactionType,
+    String? categoryId,
+    List<PageRouteInfo>? children,
+  }) : super(
           CategoryFormRoute.name,
+          args: CategoryFormRouteArgs(
+            key: key,
+            transactionType: transactionType,
+            categoryId: categoryId,
+          ),
           initialChildren: children,
         );
 
@@ -127,9 +136,33 @@ class CategoryFormRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const CategoryFormPage();
+      final args = data.argsAs<CategoryFormRouteArgs>();
+      return CategoryFormPage(
+        key: args.key,
+        transactionType: args.transactionType,
+        categoryId: args.categoryId,
+      );
     },
   );
+}
+
+class CategoryFormRouteArgs {
+  const CategoryFormRouteArgs({
+    this.key,
+    required this.transactionType,
+    this.categoryId,
+  });
+
+  final Key? key;
+
+  final String transactionType;
+
+  final String? categoryId;
+
+  @override
+  String toString() {
+    return 'CategoryFormRouteArgs{key: $key, transactionType: $transactionType, categoryId: $categoryId}';
+  }
 }
 
 /// generated route for
@@ -407,12 +440,16 @@ class TagRoute extends PageRouteInfo<TagRouteArgs> {
   TagRoute({
     Key? key,
     required String transactionType,
+    bool isSelecting = false,
+    List<String>? selectedTags,
     List<PageRouteInfo>? children,
   }) : super(
           TagRoute.name,
           args: TagRouteArgs(
             key: key,
             transactionType: transactionType,
+            isSelecting: isSelecting,
+            selectedTags: selectedTags,
           ),
           initialChildren: children,
         );
@@ -426,6 +463,8 @@ class TagRoute extends PageRouteInfo<TagRouteArgs> {
       return TagPage(
         key: args.key,
         transactionType: args.transactionType,
+        isSelecting: args.isSelecting,
+        selectedTags: args.selectedTags,
       );
     },
   );
@@ -435,15 +474,21 @@ class TagRouteArgs {
   const TagRouteArgs({
     this.key,
     required this.transactionType,
+    this.isSelecting = false,
+    this.selectedTags,
   });
 
   final Key? key;
 
   final String transactionType;
 
+  final bool isSelecting;
+
+  final List<String>? selectedTags;
+
   @override
   String toString() {
-    return 'TagRouteArgs{key: $key, transactionType: $transactionType}';
+    return 'TagRouteArgs{key: $key, transactionType: $transactionType, isSelecting: $isSelecting, selectedTags: $selectedTags}';
   }
 }
 

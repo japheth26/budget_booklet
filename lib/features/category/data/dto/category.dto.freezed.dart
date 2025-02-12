@@ -22,7 +22,7 @@ CategoryDto _$CategoryDtoFromJson(Map<String, dynamic> json) {
 mixin _$CategoryDto {
   String? get categoryId => throw _privateConstructorUsedError;
   String? get label => throw _privateConstructorUsedError;
-  String? get icon => throw _privateConstructorUsedError;
+  int? get icon => throw _privateConstructorUsedError;
   int? get color => throw _privateConstructorUsedError;
   bool? get deleted => throw _privateConstructorUsedError;
   String? get walletId => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $CategoryDtoCopyWith<$Res> {
   $Res call(
       {String? categoryId,
       String? label,
-      String? icon,
+      int? icon,
       int? color,
       bool? deleted,
       String? walletId,
@@ -89,7 +89,7 @@ class _$CategoryDtoCopyWithImpl<$Res, $Val extends CategoryDto>
       icon: freezed == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -129,7 +129,7 @@ abstract class _$$CategoryDtoImplCopyWith<$Res>
   $Res call(
       {String? categoryId,
       String? label,
-      String? icon,
+      int? icon,
       int? color,
       bool? deleted,
       String? walletId,
@@ -171,7 +171,7 @@ class __$$CategoryDtoImplCopyWithImpl<$Res>
       icon: freezed == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -223,7 +223,7 @@ class _$CategoryDtoImpl extends _CategoryDto {
   @override
   final String? label;
   @override
-  final String? icon;
+  final int? icon;
   @override
   final int? color;
   @override
@@ -286,7 +286,7 @@ abstract class _CategoryDto extends CategoryDto {
   const factory _CategoryDto(
       {final String? categoryId,
       final String? label,
-      final String? icon,
+      final int? icon,
       final int? color,
       final bool? deleted,
       final String? walletId,
@@ -303,7 +303,7 @@ abstract class _CategoryDto extends CategoryDto {
   @override
   String? get label;
   @override
-  String? get icon;
+  int? get icon;
   @override
   int? get color;
   @override

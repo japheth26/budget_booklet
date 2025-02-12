@@ -10,6 +10,8 @@ class CategoryState with _$CategoryState {
     required List<CategoryEntity> expenseCategories,
     required bool retrieved,
     required bool updated,
+    required List<String> selectedTagIds,
+    required Map<String, List<CategoryTagEntity>> tagsByCategoryId,
   }) = _CategoryState;
 
   factory CategoryState.initial() => const CategoryState(
@@ -20,6 +22,8 @@ class CategoryState with _$CategoryState {
         expenseCategories: [],
         retrieved: false,
         updated: false,
+        selectedTagIds: [],
+        tagsByCategoryId: {},
       );
 
   factory CategoryState.loading(CategoryState state) =>
@@ -97,6 +101,39 @@ class CategoryState with _$CategoryState {
     return state.copyWith(
       incomeCategories: incomeCategories,
       expenseCategories: expenseCategories,
+    );
+  }
+
+  factory CategoryState.saveSelectedTagIds(
+      CategoryState state, List<String> tagIds) {
+    return state.copyWith(selectedTagIds: tagIds);
+  }
+
+  factory CategoryState.clearSelectedTagIds(CategoryState state) {
+    return state.copyWith(selectedTagIds: []);
+  }
+
+  factory CategoryState.saveTagsByCategoryId(
+      CategoryState state, List<CategoryTagEntity> categoryTags) {
+    final categoryIds = categoryTags.map((e) => e.categoryId).toSet().toList();
+
+    final Map<String, List<CategoryTagEntity>> tagsByCategoryId = {};
+
+    for (final categoryId in categoryIds) {
+      tagsByCategoryId[categoryId] =
+          categoryTags.where((e) => e.categoryId == categoryId).toList();
+    }
+
+    return state.copyWith(tagsByCategoryId: tagsByCategoryId);
+  }
+
+  factory CategoryState.updateTagsByCategoryId(CategoryState state,
+      String categoryId, List<CategoryTagEntity> categoryTags) {
+    return state.copyWith(
+      tagsByCategoryId: {
+        ...state.tagsByCategoryId,
+        categoryId: categoryTags,
+      },
     );
   }
 }

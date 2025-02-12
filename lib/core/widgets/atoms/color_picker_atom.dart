@@ -19,10 +19,6 @@ class ColorPickerAtom extends StatelessWidget {
       width: 44,
       height: 44,
       borderRadius: 22,
-      heading: Text(
-        'Select color',
-        style: Theme.of(context).textTheme.headlineSmall,
-      ),
       subheading: Text(
         'Select color shade',
         style: Theme.of(context).textTheme.titleSmall,

@@ -16,9 +16,12 @@ class TagListMolecule extends StatelessWidget {
     return ListView(
       children: (tagItemParams ?? []).map((e) {
         return TagItemAtom(
+          isSelected: e.isSelected,
+          isSelecting: e.isSelecting,
           name: e.name,
           color: e.color,
           onTap: e.onTap,
+          onSelect: e.onSelect,
         );
       }).toList(),
     );

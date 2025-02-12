@@ -10,6 +10,7 @@ class TagState with _$TagState {
     required List<TagEntity> expenseTags,
     required bool retrieved,
     required bool added,
+    required List<String> selectedTags,
   }) = _TagState;
 
   factory TagState.initial() => const TagState(
@@ -20,6 +21,7 @@ class TagState with _$TagState {
         expenseTags: [],
         retrieved: false,
         added: false,
+        selectedTags: [],
       );
 
   factory TagState.loading(TagState state) =>
@@ -92,5 +94,31 @@ class TagState with _$TagState {
       incomeTags: incomeTags,
       expenseTags: expenseTags,
     );
+  }
+
+  factory TagState.saveSelectedTags(TagState state, List<String> selectedTags) {
+    return state.copyWith(selectedTags: selectedTags);
+  }
+
+  factory TagState.selectTag(TagState state, String selectedTag) {
+    List<String> currentSelectedTags = [...state.selectedTags];
+
+    currentSelectedTags.add(selectedTag);
+
+    currentSelectedTags = currentSelectedTags.toSet().toList();
+
+    return state.copyWith(selectedTags: currentSelectedTags);
+  }
+
+  factory TagState.removeTag(TagState state, String selectedTag) {
+    List<String> currentSelectedTags = [...state.selectedTags];
+
+    currentSelectedTags.removeWhere((e) => e == selectedTag);
+
+    return state.copyWith(selectedTags: currentSelectedTags);
+  }
+
+  factory TagState.clearSelectedTags(TagState state) {
+    return state.copyWith(selectedTags: []);
   }
 }

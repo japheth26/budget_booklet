@@ -25,8 +25,12 @@ import '../../features/auth/data/repository/auth_repository.dart' as _i104;
 import '../../features/auth/domain/bloc/auth/auth_bloc.dart' as _i780;
 import '../../features/category/data/datasources/category_remote.datasource.dart'
     as _i339;
+import '../../features/category/data/datasources/category_tags_remote.datasource.dart'
+    as _i967;
 import '../../features/category/data/repositories/category.repository.dart'
     as _i410;
+import '../../features/category/data/repositories/category_tag.repository.dart'
+    as _i950;
 import '../../features/category/domain/bloc/category/category_bloc.dart'
     as _i618;
 import '../../features/tag/data/datasources/tag_remote.datasource.dart'
@@ -84,6 +88,13 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i684.WalletRemoteDatasource(gh<_i317.Databases>()));
     gh.lazySingleton<_i558.TagRemoteDatasource>(
         () => _i558.TagRemoteDatasource(gh<_i317.Databases>()));
+    gh.lazySingleton<_i967.CategoryTagsRemoteDatasource>(
+        () => _i967.CategoryTagsRemoteDatasource(gh<_i317.Databases>()));
+    gh.lazySingleton<_i950.CategoryTagRepository>(
+        () => _i950.CategoryTagRepository(
+              gh<_i974.Logger>(),
+              gh<_i967.CategoryTagsRemoteDatasource>(),
+            ));
     gh.lazySingleton<_i104.AuthRepository>(() => _i104.AuthRepository(
           logger: gh<_i974.Logger>(),
           authRemoteDataSource: gh<_i175.AuthRemoteDatasource>(),
@@ -103,20 +114,23 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i974.Logger>(),
           gh<_i684.WalletRemoteDatasource>(),
         ));
-    gh.lazySingleton<_i410.CategoryRepository>(() => _i410.CategoryRepository(
-          gh<_i974.Logger>(),
-          gh<_i339.CategoryRemoteDatasource>(),
-        ));
     gh.lazySingleton<_i563.WalletBloc>(() => _i563.WalletBloc(
           gh<_i1038.WalletRepository>(),
           gh<_i622.AssignedWalletRepository>(),
+        ));
+    gh.lazySingleton<_i410.CategoryRepository>(() => _i410.CategoryRepository(
+          gh<_i974.Logger>(),
+          gh<_i339.CategoryRemoteDatasource>(),
+          gh<_i967.CategoryTagsRemoteDatasource>(),
         ));
     gh.lazySingleton<_i185.TagBloc>(
         () => _i185.TagBloc(gh<_i451.TagRepository>()));
     gh.lazySingleton<_i780.AuthBloc>(
         () => _i780.AuthBloc(gh<_i104.AuthRepository>()));
-    gh.lazySingleton<_i618.CategoryBloc>(
-        () => _i618.CategoryBloc(gh<_i410.CategoryRepository>()));
+    gh.lazySingleton<_i618.CategoryBloc>(() => _i618.CategoryBloc(
+          gh<_i410.CategoryRepository>(),
+          gh<_i950.CategoryTagRepository>(),
+        ));
     return this;
   }
 }

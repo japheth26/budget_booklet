@@ -13,7 +13,7 @@ class UpdateCategoryVo with _$UpdateCategoryVo {
   const factory UpdateCategoryVo({
     required String categoryId,
     required String label,
-    required String icon,
+    required int icon,
     required int color,
   }) = _UpdateCategoryVo;
 
@@ -25,7 +25,7 @@ class UpdateCategoryVo with _$UpdateCategoryVo {
     final guardResult = Guard.combine([
       Guard.againstEmptyString('Category ID', dto.categoryId),
       Guard.againstEmptyString('Label', dto.label),
-      Guard.againstEmptyString('Icon', dto.icon),
+      Guard.againstUndefined('Icon', dto.icon),
       Guard.againstUndefined('Color', dto.color),
     ]);
 

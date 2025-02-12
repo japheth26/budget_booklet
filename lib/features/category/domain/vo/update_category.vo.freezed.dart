@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$UpdateCategoryVo {
   String get categoryId => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
-  String get icon => throw _privateConstructorUsedError;
+  int get icon => throw _privateConstructorUsedError;
   int get color => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -32,7 +32,7 @@ abstract class $UpdateCategoryVoCopyWith<$Res> {
           UpdateCategoryVo value, $Res Function(UpdateCategoryVo) then) =
       _$UpdateCategoryVoCopyWithImpl<$Res, UpdateCategoryVo>;
   @useResult
-  $Res call({String categoryId, String label, String icon, int color});
+  $Res call({String categoryId, String label, int icon, int color});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$UpdateCategoryVoCopyWithImpl<$Res, $Val extends UpdateCategoryVo>
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -82,7 +82,7 @@ abstract class _$$UpdateCategoryVoImplCopyWith<$Res>
       __$$UpdateCategoryVoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String categoryId, String label, String icon, int color});
+  $Res call({String categoryId, String label, int icon, int color});
 }
 
 /// @nodoc
@@ -113,7 +113,7 @@ class __$$UpdateCategoryVoImplCopyWithImpl<$Res>
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -137,7 +137,7 @@ class _$UpdateCategoryVoImpl extends _UpdateCategoryVo {
   @override
   final String label;
   @override
-  final String icon;
+  final int icon;
   @override
   final int color;
 
@@ -173,7 +173,7 @@ abstract class _UpdateCategoryVo extends UpdateCategoryVo {
   const factory _UpdateCategoryVo(
       {required final String categoryId,
       required final String label,
-      required final String icon,
+      required final int icon,
       required final int color}) = _$UpdateCategoryVoImpl;
   const _UpdateCategoryVo._() : super._();
 
@@ -182,7 +182,7 @@ abstract class _UpdateCategoryVo extends UpdateCategoryVo {
   @override
   String get label;
   @override
-  String get icon;
+  int get icon;
   @override
   int get color;
   @override

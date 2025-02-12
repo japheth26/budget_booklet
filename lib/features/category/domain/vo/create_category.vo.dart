@@ -13,7 +13,7 @@ class CreateCategoryVo with _$CreateCategoryVo {
   const factory CreateCategoryVo({
     required String walletId,
     required String label,
-    required String icon,
+    required int icon,
     required String transactionType,
     required int color,
     required String createdBy,
@@ -27,7 +27,7 @@ class CreateCategoryVo with _$CreateCategoryVo {
     final guardResult = Guard.combine([
       Guard.againstEmptyString('Wallet ID', dto.walletId),
       Guard.againstEmptyString('Label', dto.label),
-      Guard.againstEmptyString('Icon', dto.icon),
+      Guard.againstUndefined('Icon', dto.icon),
       Guard.againstInvalidArrayItem(
           'Transaction Type', TransactionType.values, dto.transactionType),
       Guard.againstUndefined('Color', dto.color),

@@ -29,68 +29,56 @@ class _IconSelectorAtomState extends State<IconSelectorAtom> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Text(
-          'Select Icon',
-          style: TextStyle(
-            fontSize: 22,
-          ),
+    return Container(
+      padding: const EdgeInsets.all(10),
+      width: double.infinity,
+      height: 100,
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: 2,
+          color: CustomColor.blueGrey,
         ),
-        const SizedBox(height: 10),
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20),
-          padding: const EdgeInsets.all(10),
-          width: double.infinity,
-          height: 100,
-          decoration: BoxDecoration(
-            border: Border.all(
-              width: 2,
-              color: CustomColor.blueGrey,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 80,
+            height: 100,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 2,
+                color: CustomColor.blueGrey,
+              ),
+              borderRadius: BorderRadius.circular(10),
             ),
-            borderRadius: BorderRadius.circular(10),
+            child: Icon(
+              IconData(_codePoint, fontFamily: 'MaterialIcons'),
+              color: CustomColor.blueGrey,
+              size: 50,
+            ),
           ),
-          child: Row(
-            children: [
-              Container(
-                width: 80,
-                height: 100,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 2,
-                    color: CustomColor.blueGrey,
-                  ),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Icon(
-                  IconData(_codePoint, fontFamily: 'MaterialIcons'),
-                  color: CustomColor.blueGrey,
-                  size: 50,
+          Expanded(
+              child: GestureDetector(
+            onTap: () {
+              _handleSelectIcon(context);
+            },
+            child: Container(
+              height: 100,
+              alignment: Alignment.center,
+              child: const Text(
+                'Tap to select icon',
+                style: TextStyle(
+                  color: CustomColor.royalBlue,
+                  fontSize: AppSizes.h_16,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
-              Expanded(
-                  child: GestureDetector(
-                onTap: () {
-                  _handleSelectIcon(context);
-                },
-                child: Container(
-                  height: 100,
-                  alignment: Alignment.center,
-                  child: const Text(
-                    'Tap to select icon',
-                    style: TextStyle(
-                      color: CustomColor.royalBlue,
-                      fontSize: AppSizes.h_16,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ))
-            ],
-          ),
-        ),
-      ],
+            ),
+          ))
+        ],
+      ),
     );
   }
 

@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreateCategoryVo {
   String get walletId => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
-  String get icon => throw _privateConstructorUsedError;
+  int get icon => throw _privateConstructorUsedError;
   String get transactionType => throw _privateConstructorUsedError;
   int get color => throw _privateConstructorUsedError;
   String get createdBy => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $CreateCategoryVoCopyWith<$Res> {
   $Res call(
       {String walletId,
       String label,
-      String icon,
+      int icon,
       String transactionType,
       int color,
       String createdBy});
@@ -75,7 +75,7 @@ class _$CreateCategoryVoCopyWithImpl<$Res, $Val extends CreateCategoryVo>
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       transactionType: null == transactionType
           ? _value.transactionType
           : transactionType // ignore: cast_nullable_to_non_nullable
@@ -103,7 +103,7 @@ abstract class _$$CreateCategoryVoImplCopyWith<$Res>
   $Res call(
       {String walletId,
       String label,
-      String icon,
+      int icon,
       String transactionType,
       int color,
       String createdBy});
@@ -139,7 +139,7 @@ class __$$CreateCategoryVoImplCopyWithImpl<$Res>
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       transactionType: null == transactionType
           ? _value.transactionType
           : transactionType // ignore: cast_nullable_to_non_nullable
@@ -173,7 +173,7 @@ class _$CreateCategoryVoImpl extends _CreateCategoryVo {
   @override
   final String label;
   @override
-  final String icon;
+  final int icon;
   @override
   final String transactionType;
   @override
@@ -218,7 +218,7 @@ abstract class _CreateCategoryVo extends CreateCategoryVo {
   const factory _CreateCategoryVo(
       {required final String walletId,
       required final String label,
-      required final String icon,
+      required final int icon,
       required final String transactionType,
       required final int color,
       required final String createdBy}) = _$CreateCategoryVoImpl;
@@ -229,7 +229,7 @@ abstract class _CreateCategoryVo extends CreateCategoryVo {
   @override
   String get label;
   @override
-  String get icon;
+  int get icon;
   @override
   String get transactionType;
   @override

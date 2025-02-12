@@ -10,6 +10,7 @@ import 'package:logger/logger.dart';
 import '../../../../core/result/result.dart';
 import '../../../../core/state_status/error_messages.dart';
 import '../../domain/vo/update_category.vo.dart';
+import '../datasources/category_tags_remote.datasource.dart';
 
 @lazySingleton
 class CategoryRepository {
@@ -17,7 +18,9 @@ class CategoryRepository {
   late CategoryRemoteDatasource _categoryRemoteDatasource;
 
   CategoryRepository(
-      Logger logger, CategoryRemoteDatasource categoryRemoteDatasource) {
+      Logger logger,
+      CategoryRemoteDatasource categoryRemoteDatasource,
+      CategoryTagsRemoteDatasource categoryTagsRemoteDatasource) {
     _logger = logger;
     _categoryRemoteDatasource = categoryRemoteDatasource;
   }

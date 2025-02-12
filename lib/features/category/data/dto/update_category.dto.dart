@@ -1,7 +1,7 @@
 class UpdateCategoryDto {
   final String? categoryId;
   final String? label;
-  final String? icon;
+  final int? icon;
   final int? color;
 
   UpdateCategoryDto({

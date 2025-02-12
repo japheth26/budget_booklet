@@ -10,7 +10,7 @@ _$CategoryDtoImpl _$$CategoryDtoImplFromJson(Map<String, dynamic> json) =>
     _$CategoryDtoImpl(
       categoryId: json['categoryId'] as String?,
       label: json['label'] as String?,
-      icon: json['icon'] as String?,
+      icon: (json['icon'] as num?)?.toInt(),
       color: (json['color'] as num?)?.toInt(),
       deleted: json['deleted'] as bool?,
       walletId: json['walletId'] as String?,

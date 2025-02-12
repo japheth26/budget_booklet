@@ -8,7 +8,7 @@ import 'package:hani/features/wallet/domain/entity/wallet.entity.dart';
 class CategoryEntity extends Equatable {
   final String categoryId;
   final String label;
-  final String icon;
+  final int icon;
   final Color color;
   final bool deleted;
   final String walletId;
@@ -44,7 +44,7 @@ class CategoryEntity extends Equatable {
     final guardResult = Guard.combine([
       Guard.againstEmptyString('Category ID', dto.categoryId),
       Guard.againstEmptyString('Label', dto.label),
-      Guard.againstEmptyString('Icon', dto.icon),
+      Guard.againstUndefined('Icon', dto.icon),
       Guard.againstUndefined('Color', dto.color),
       Guard.againstUndefined('Deleted Status', dto.deleted),
       Guard.againstEmptyString('Wallet ID', dto.walletId),
