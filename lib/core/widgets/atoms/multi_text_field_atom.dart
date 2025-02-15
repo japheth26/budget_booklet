@@ -27,7 +27,7 @@ class MultiTextFieldAtom extends StatelessWidget {
     final ColorTheme colorTheme = ColorThemeUtils.getColors(context);
     const double borderRadius = 15;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: SizedBox(
         width: double.infinity,
         height: 150,

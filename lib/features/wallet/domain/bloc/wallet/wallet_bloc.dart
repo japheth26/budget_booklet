@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hani/core/state_status/state_status.dart';
@@ -9,7 +10,6 @@ import 'package:hani/features/wallet/domain/entity/assigned_wallet.entity.dart';
 import 'package:hani/features/wallet/domain/vo/create_assigned_wallet.vo.dart';
 import 'package:hani/features/wallet/domain/vo/create_wallet.vo.dart';
 import 'package:injectable/injectable.dart';
-import 'package:collection/collection.dart';
 
 import '../../entity/wallet.entity.dart';
 

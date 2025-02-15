@@ -24,9 +24,17 @@ class _WalletFormPageState extends State<WalletFormPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _initialAmountController =
       MoneyMaskedTextController();
+  final TextEditingController _spendAmountController =
+      MoneyMaskedTextController();
+  final TextEditingController _saveAmountController =
+      MoneyMaskedTextController();
+  final TextEditingController _goalController = TextEditingController();
+  final TextEditingController _planController = TextEditingController();
 
   final GlobalKey<FormFieldState> _nameGlobalKey = GlobalKey();
   final GlobalKey<FormFieldState> _initialAmountGlobalKey = GlobalKey();
+  final GlobalKey<FormFieldState> _spendAmountGlobalKey = GlobalKey();
+  final GlobalKey<FormFieldState> _saveAmountGlobalKey = GlobalKey();
 
   late StackRouter _router;
   late WalletBloc _walletBloc;
@@ -51,9 +59,15 @@ class _WalletFormPageState extends State<WalletFormPage> {
 
     _nameController.dispose();
     _initialAmountController.dispose();
+    _spendAmountController.dispose();
+    _saveAmountController.dispose();
+    _goalController.dispose();
+    _planController.dispose();
 
     _nameGlobalKey.currentState?.dispose();
     _initialAmountGlobalKey.currentState?.dispose();
+    _spendAmountGlobalKey.currentState?.dispose();
+    _saveAmountGlobalKey.currentState?.dispose();
   }
 
   @override
@@ -68,10 +82,18 @@ class _WalletFormPageState extends State<WalletFormPage> {
             onBackPressed: () => _router.maybePop(),
             nameController: _nameController,
             initialAmountController: _initialAmountController,
+            spendAmountController: _spendAmountController,
+            saveAmountController: _saveAmountController,
+            goalController: _goalController,
+            planController: _planController,
             nameGlobalKey: _nameGlobalKey,
             initialAmountGlobalKey: _initialAmountGlobalKey,
+            spendAmountGlobalKey: _spendAmountGlobalKey,
+            saveAmountGlobalKey: _saveAmountGlobalKey,
             nameValidator: _handleNameValidator,
             initialAmountValidator: _handleInitialAmountValidator,
+            spendAmountValidator: _handleSpendAmountValidator,
+            saveAmountValidator: _handleSaveAmountValidator,
             onSubmit: _handleSubmit,
           ),
         );
@@ -95,10 +117,29 @@ class _WalletFormPageState extends State<WalletFormPage> {
   }
 
   String? _handleInitialAmountValidator(value) {
+    const String name = 'Initial Amount';
     return Guard.combine([
-      Guard.againstEmptyString('Initial Amount', value),
-      Guard.againstInvalidDouble('Initial Amount', value),
-      Guard.againstZero('Initial Amount', value)
+      Guard.againstEmptyString(name, value),
+      Guard.againstInvalidDouble(name, value),
+      Guard.againstZero(name, value)
+    ]);
+  }
+
+  String? _handleSpendAmountValidator(value) {
+    const String name = 'Spending Amount';
+    return Guard.combine([
+      Guard.againstEmptyString(name, value),
+      Guard.againstInvalidDouble(name, value),
+      Guard.againstZero(name, value)
+    ]);
+  }
+
+  String? _handleSaveAmountValidator(value) {
+    const String name = 'Saving Amount';
+    return Guard.combine([
+      Guard.againstEmptyString(name, value),
+      Guard.againstInvalidDouble(name, value),
+      Guard.againstZero(name, value)
     ]);
   }
 
@@ -106,14 +147,18 @@ class _WalletFormPageState extends State<WalletFormPage> {
     final isNameValid = _nameGlobalKey.currentState!.validate();
     final isInitialAmountValid =
         _initialAmountGlobalKey.currentState!.validate();
+    final isSpendingAmountValid =
+        _spendAmountGlobalKey.currentState!.validate();
+    final isSavingAmountValid = _saveAmountGlobalKey.currentState!.validate();
 
-    if (isNameValid && isInitialAmountValid) {
+    if (isNameValid &&
+        isInitialAmountValid &&
+        isSpendingAmountValid &&
+        isSavingAmountValid) {
       _walletBloc.add(
         WalletEvent.createWallet(
           dto: CreateWalletDto(
             name: _nameController.text,
-            initial:
-                double.parse(_initialAmountController.text.replaceAll(",", "")),
             createdBy: _userId,
           ),
         ),

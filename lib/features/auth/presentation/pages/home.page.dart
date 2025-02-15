@@ -8,6 +8,7 @@ import 'package:hani/core/widgets/dialog/global_dialog.dart';
 import 'package:hani/features/auth/domain/bloc/auth/auth_bloc.dart';
 import 'package:hani/features/auth/presentation/templates/home/home_params.dart';
 import 'package:hani/features/auth/presentation/templates/home/home_template.dart';
+import 'package:hani/features/monthly_record/domain/bloc/monthly_record/monthly_record_bloc.dart';
 import 'package:hani/features/wallet/domain/bloc/wallet/wallet_bloc.dart';
 
 @RoutePage()
@@ -22,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   late StackRouter _router;
   late AuthBloc _authBloc;
   late WalletBloc _walletBloc;
+  late MonthlyRecordBloc _monthlyRecordBloc;
 
   late String _userId;
 
@@ -31,6 +33,7 @@ class _HomePageState extends State<HomePage> {
     _router = AutoRouter.of(context);
     _authBloc = getIt<AuthBloc>();
     _walletBloc = getIt<WalletBloc>();
+    _monthlyRecordBloc = getIt<MonthlyRecordBloc>();
 
     _userId = _authBloc.state.authUserEntity!.userId;
 
@@ -48,43 +51,56 @@ class _HomePageState extends State<HomePage> {
       ],
       child: BlocBuilder<WalletBloc, WalletState>(
         bloc: _walletBloc,
-        builder: (context, state) {
-          return HomeTemplate(
-            params: HomeParams(
-                onRefresh: _handleOnRefresh,
-                loading: state.stateStatus == StateStatus.loading,
-                drawerOnPressed: () {
-                  _router.push(const HomeDrawerRoute());
-                },
-                homeItemParams: [
-                  ...state.wallets.map((e) {
-                    return HomeItemParam(
-                      name: e.name,
-                      balance: ((e.initial + e.income) - e.expense).toString(),
-                      walletNumber: e.walletId,
-                      pieChartDataList: [
-                        HomePieChartData(
-                          color: Colors.green,
-                          value: e.income,
-                        ),
-                        HomePieChartData(
-                          color: Colors.yellow,
-                          value: e.initial,
-                        ),
-                        HomePieChartData(
-                          color: Colors.red,
-                          value: e.expense,
-                        )
-                      ],
-                      onTap: () {
-                        _router.push(WalletLoadingRoute(walletId: e.walletId));
-                      },
-                    );
-                  }),
-                ],
-                addOnPressed: () {
-                  _router.push(const WalletFormRoute());
-                }),
+        builder: (context, walletState) {
+          return BlocBuilder<MonthlyRecordBloc, MonthlyRecordState>(
+            bloc: _monthlyRecordBloc,
+            builder: (context, monthlyRecordState) {
+              return HomeTemplate(
+                params: HomeParams(
+                    onRefresh: _handleOnRefresh,
+                    loading: walletState.stateStatus == StateStatus.loading,
+                    drawerOnPressed: () {
+                      _router.push(const HomeDrawerRoute());
+                    },
+                    homeItemParams: [
+                      ...walletState.wallets.map((e) {
+                        final monthlyRecord = monthlyRecordState
+                            .monthlyRecordsByWalletId[e.walletId];
+                        final initialAmount = monthlyRecord?.initialAmount ?? 0;
+                        final income = monthlyRecord?.income ?? 0;
+                        final expense = monthlyRecord?.expense ?? 0;
+
+                        return HomeItemParam(
+                          name: e.name,
+                          balance: ((initialAmount + income) - expense)
+                              .toStringAsFixed(2),
+                          walletNumber: e.walletId,
+                          pieChartDataList: [
+                            HomePieChartData(
+                              color: Colors.green,
+                              value: income,
+                            ),
+                            HomePieChartData(
+                              color: Colors.yellow,
+                              value: initialAmount,
+                            ),
+                            HomePieChartData(
+                              color: Colors.red,
+                              value: expense,
+                            )
+                          ],
+                          onTap: () {
+                            _router
+                                .push(WalletLoadingRoute(walletId: e.walletId));
+                          },
+                        );
+                      }),
+                    ],
+                    addOnPressed: () {
+                      _router.push(const WalletFormRoute());
+                    }),
+              );
+            },
           );
         },
       ),
@@ -108,6 +124,13 @@ class _HomePageState extends State<HomePage> {
 
     if (state.unassignedWalletsFixed) {
       _getWallets();
+    }
+
+    if (state.walletsRetrieved) {
+      final walletIds =
+          _walletBloc.state.wallets.map((e) => e.walletId).toList();
+      _monthlyRecordBloc
+          .add(MonthlyRecordEvent.getMonthlyRecords(walletIds: walletIds));
     }
   }
 

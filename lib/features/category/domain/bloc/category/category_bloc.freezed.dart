@@ -25,7 +25,6 @@ mixin _$CategoryEvent {
     required TResult Function(UpdateCategoryDto dto) updateCategory,
     required TResult Function(CreateCategoryTagsDto dto) updateCategoryTags,
     required TResult Function(DeleteCategoryDto dto) deleteCategory,
-    required TResult Function(String categoryId) deleteCategoryTags,
     required TResult Function(List<String> tagIds) saveSelectedTagIds,
     required TResult Function() clearSelectedTagIds,
   }) =>
@@ -39,7 +38,6 @@ mixin _$CategoryEvent {
     TResult? Function(UpdateCategoryDto dto)? updateCategory,
     TResult? Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult? Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult? Function(String categoryId)? deleteCategoryTags,
     TResult? Function(List<String> tagIds)? saveSelectedTagIds,
     TResult? Function()? clearSelectedTagIds,
   }) =>
@@ -53,7 +51,6 @@ mixin _$CategoryEvent {
     TResult Function(UpdateCategoryDto dto)? updateCategory,
     TResult Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult Function(String categoryId)? deleteCategoryTags,
     TResult Function(List<String> tagIds)? saveSelectedTagIds,
     TResult Function()? clearSelectedTagIds,
     required TResult orElse(),
@@ -69,7 +66,6 @@ mixin _$CategoryEvent {
     required TResult Function(_UpdateCategory value) updateCategory,
     required TResult Function(_UpdateCategoryTags value) updateCategoryTags,
     required TResult Function(_DeleteCategory value) deleteCategory,
-    required TResult Function(_DeleteCategoryTags value) deleteCategoryTags,
     required TResult Function(_SaveSelectedTagIds value) saveSelectedTagIds,
     required TResult Function(_ClearSelectedTagIds value) clearSelectedTagIds,
   }) =>
@@ -84,7 +80,6 @@ mixin _$CategoryEvent {
     TResult? Function(_UpdateCategory value)? updateCategory,
     TResult? Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult? Function(_DeleteCategory value)? deleteCategory,
-    TResult? Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult? Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult? Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
   }) =>
@@ -99,7 +94,6 @@ mixin _$CategoryEvent {
     TResult Function(_UpdateCategory value)? updateCategory,
     TResult Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult Function(_DeleteCategory value)? deleteCategory,
-    TResult Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
     required TResult orElse(),
@@ -197,7 +191,6 @@ class _$GetAllCategoriesImpl implements _GetAllCategories {
     required TResult Function(UpdateCategoryDto dto) updateCategory,
     required TResult Function(CreateCategoryTagsDto dto) updateCategoryTags,
     required TResult Function(DeleteCategoryDto dto) deleteCategory,
-    required TResult Function(String categoryId) deleteCategoryTags,
     required TResult Function(List<String> tagIds) saveSelectedTagIds,
     required TResult Function() clearSelectedTagIds,
   }) {
@@ -214,7 +207,6 @@ class _$GetAllCategoriesImpl implements _GetAllCategories {
     TResult? Function(UpdateCategoryDto dto)? updateCategory,
     TResult? Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult? Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult? Function(String categoryId)? deleteCategoryTags,
     TResult? Function(List<String> tagIds)? saveSelectedTagIds,
     TResult? Function()? clearSelectedTagIds,
   }) {
@@ -231,7 +223,6 @@ class _$GetAllCategoriesImpl implements _GetAllCategories {
     TResult Function(UpdateCategoryDto dto)? updateCategory,
     TResult Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult Function(String categoryId)? deleteCategoryTags,
     TResult Function(List<String> tagIds)? saveSelectedTagIds,
     TResult Function()? clearSelectedTagIds,
     required TResult orElse(),
@@ -253,7 +244,6 @@ class _$GetAllCategoriesImpl implements _GetAllCategories {
     required TResult Function(_UpdateCategory value) updateCategory,
     required TResult Function(_UpdateCategoryTags value) updateCategoryTags,
     required TResult Function(_DeleteCategory value) deleteCategory,
-    required TResult Function(_DeleteCategoryTags value) deleteCategoryTags,
     required TResult Function(_SaveSelectedTagIds value) saveSelectedTagIds,
     required TResult Function(_ClearSelectedTagIds value) clearSelectedTagIds,
   }) {
@@ -271,7 +261,6 @@ class _$GetAllCategoriesImpl implements _GetAllCategories {
     TResult? Function(_UpdateCategory value)? updateCategory,
     TResult? Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult? Function(_DeleteCategory value)? deleteCategory,
-    TResult? Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult? Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult? Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
   }) {
@@ -289,7 +278,6 @@ class _$GetAllCategoriesImpl implements _GetAllCategories {
     TResult Function(_UpdateCategory value)? updateCategory,
     TResult Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult Function(_DeleteCategory value)? deleteCategory,
-    TResult Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
     required TResult orElse(),
@@ -361,7 +349,6 @@ class _$GetAllCategoryTagsByCategoryIdImpl
     required TResult Function(UpdateCategoryDto dto) updateCategory,
     required TResult Function(CreateCategoryTagsDto dto) updateCategoryTags,
     required TResult Function(DeleteCategoryDto dto) deleteCategory,
-    required TResult Function(String categoryId) deleteCategoryTags,
     required TResult Function(List<String> tagIds) saveSelectedTagIds,
     required TResult Function() clearSelectedTagIds,
   }) {
@@ -378,7 +365,6 @@ class _$GetAllCategoryTagsByCategoryIdImpl
     TResult? Function(UpdateCategoryDto dto)? updateCategory,
     TResult? Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult? Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult? Function(String categoryId)? deleteCategoryTags,
     TResult? Function(List<String> tagIds)? saveSelectedTagIds,
     TResult? Function()? clearSelectedTagIds,
   }) {
@@ -395,7 +381,6 @@ class _$GetAllCategoryTagsByCategoryIdImpl
     TResult Function(UpdateCategoryDto dto)? updateCategory,
     TResult Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult Function(String categoryId)? deleteCategoryTags,
     TResult Function(List<String> tagIds)? saveSelectedTagIds,
     TResult Function()? clearSelectedTagIds,
     required TResult orElse(),
@@ -417,7 +402,6 @@ class _$GetAllCategoryTagsByCategoryIdImpl
     required TResult Function(_UpdateCategory value) updateCategory,
     required TResult Function(_UpdateCategoryTags value) updateCategoryTags,
     required TResult Function(_DeleteCategory value) deleteCategory,
-    required TResult Function(_DeleteCategoryTags value) deleteCategoryTags,
     required TResult Function(_SaveSelectedTagIds value) saveSelectedTagIds,
     required TResult Function(_ClearSelectedTagIds value) clearSelectedTagIds,
   }) {
@@ -435,7 +419,6 @@ class _$GetAllCategoryTagsByCategoryIdImpl
     TResult? Function(_UpdateCategory value)? updateCategory,
     TResult? Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult? Function(_DeleteCategory value)? deleteCategory,
-    TResult? Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult? Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult? Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
   }) {
@@ -453,7 +436,6 @@ class _$GetAllCategoryTagsByCategoryIdImpl
     TResult Function(_UpdateCategory value)? updateCategory,
     TResult Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult Function(_DeleteCategory value)? deleteCategory,
-    TResult Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
     required TResult orElse(),
@@ -542,7 +524,6 @@ class _$CreateCategoryImpl implements _CreateCategory {
     required TResult Function(UpdateCategoryDto dto) updateCategory,
     required TResult Function(CreateCategoryTagsDto dto) updateCategoryTags,
     required TResult Function(DeleteCategoryDto dto) deleteCategory,
-    required TResult Function(String categoryId) deleteCategoryTags,
     required TResult Function(List<String> tagIds) saveSelectedTagIds,
     required TResult Function() clearSelectedTagIds,
   }) {
@@ -559,7 +540,6 @@ class _$CreateCategoryImpl implements _CreateCategory {
     TResult? Function(UpdateCategoryDto dto)? updateCategory,
     TResult? Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult? Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult? Function(String categoryId)? deleteCategoryTags,
     TResult? Function(List<String> tagIds)? saveSelectedTagIds,
     TResult? Function()? clearSelectedTagIds,
   }) {
@@ -576,7 +556,6 @@ class _$CreateCategoryImpl implements _CreateCategory {
     TResult Function(UpdateCategoryDto dto)? updateCategory,
     TResult Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult Function(String categoryId)? deleteCategoryTags,
     TResult Function(List<String> tagIds)? saveSelectedTagIds,
     TResult Function()? clearSelectedTagIds,
     required TResult orElse(),
@@ -598,7 +577,6 @@ class _$CreateCategoryImpl implements _CreateCategory {
     required TResult Function(_UpdateCategory value) updateCategory,
     required TResult Function(_UpdateCategoryTags value) updateCategoryTags,
     required TResult Function(_DeleteCategory value) deleteCategory,
-    required TResult Function(_DeleteCategoryTags value) deleteCategoryTags,
     required TResult Function(_SaveSelectedTagIds value) saveSelectedTagIds,
     required TResult Function(_ClearSelectedTagIds value) clearSelectedTagIds,
   }) {
@@ -616,7 +594,6 @@ class _$CreateCategoryImpl implements _CreateCategory {
     TResult? Function(_UpdateCategory value)? updateCategory,
     TResult? Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult? Function(_DeleteCategory value)? deleteCategory,
-    TResult? Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult? Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult? Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
   }) {
@@ -634,7 +611,6 @@ class _$CreateCategoryImpl implements _CreateCategory {
     TResult Function(_UpdateCategory value)? updateCategory,
     TResult Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult Function(_DeleteCategory value)? deleteCategory,
-    TResult Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
     required TResult orElse(),
@@ -728,7 +704,6 @@ class _$CreateCategoryTagsImpl implements _CreateCategoryTags {
     required TResult Function(UpdateCategoryDto dto) updateCategory,
     required TResult Function(CreateCategoryTagsDto dto) updateCategoryTags,
     required TResult Function(DeleteCategoryDto dto) deleteCategory,
-    required TResult Function(String categoryId) deleteCategoryTags,
     required TResult Function(List<String> tagIds) saveSelectedTagIds,
     required TResult Function() clearSelectedTagIds,
   }) {
@@ -745,7 +720,6 @@ class _$CreateCategoryTagsImpl implements _CreateCategoryTags {
     TResult? Function(UpdateCategoryDto dto)? updateCategory,
     TResult? Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult? Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult? Function(String categoryId)? deleteCategoryTags,
     TResult? Function(List<String> tagIds)? saveSelectedTagIds,
     TResult? Function()? clearSelectedTagIds,
   }) {
@@ -762,7 +736,6 @@ class _$CreateCategoryTagsImpl implements _CreateCategoryTags {
     TResult Function(UpdateCategoryDto dto)? updateCategory,
     TResult Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult Function(String categoryId)? deleteCategoryTags,
     TResult Function(List<String> tagIds)? saveSelectedTagIds,
     TResult Function()? clearSelectedTagIds,
     required TResult orElse(),
@@ -784,7 +757,6 @@ class _$CreateCategoryTagsImpl implements _CreateCategoryTags {
     required TResult Function(_UpdateCategory value) updateCategory,
     required TResult Function(_UpdateCategoryTags value) updateCategoryTags,
     required TResult Function(_DeleteCategory value) deleteCategory,
-    required TResult Function(_DeleteCategoryTags value) deleteCategoryTags,
     required TResult Function(_SaveSelectedTagIds value) saveSelectedTagIds,
     required TResult Function(_ClearSelectedTagIds value) clearSelectedTagIds,
   }) {
@@ -802,7 +774,6 @@ class _$CreateCategoryTagsImpl implements _CreateCategoryTags {
     TResult? Function(_UpdateCategory value)? updateCategory,
     TResult? Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult? Function(_DeleteCategory value)? deleteCategory,
-    TResult? Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult? Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult? Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
   }) {
@@ -820,7 +791,6 @@ class _$CreateCategoryTagsImpl implements _CreateCategoryTags {
     TResult Function(_UpdateCategory value)? updateCategory,
     TResult Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult Function(_DeleteCategory value)? deleteCategory,
-    TResult Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
     required TResult orElse(),
@@ -914,7 +884,6 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
     required TResult Function(UpdateCategoryDto dto) updateCategory,
     required TResult Function(CreateCategoryTagsDto dto) updateCategoryTags,
     required TResult Function(DeleteCategoryDto dto) deleteCategory,
-    required TResult Function(String categoryId) deleteCategoryTags,
     required TResult Function(List<String> tagIds) saveSelectedTagIds,
     required TResult Function() clearSelectedTagIds,
   }) {
@@ -931,7 +900,6 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
     TResult? Function(UpdateCategoryDto dto)? updateCategory,
     TResult? Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult? Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult? Function(String categoryId)? deleteCategoryTags,
     TResult? Function(List<String> tagIds)? saveSelectedTagIds,
     TResult? Function()? clearSelectedTagIds,
   }) {
@@ -948,7 +916,6 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
     TResult Function(UpdateCategoryDto dto)? updateCategory,
     TResult Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult Function(String categoryId)? deleteCategoryTags,
     TResult Function(List<String> tagIds)? saveSelectedTagIds,
     TResult Function()? clearSelectedTagIds,
     required TResult orElse(),
@@ -970,7 +937,6 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
     required TResult Function(_UpdateCategory value) updateCategory,
     required TResult Function(_UpdateCategoryTags value) updateCategoryTags,
     required TResult Function(_DeleteCategory value) deleteCategory,
-    required TResult Function(_DeleteCategoryTags value) deleteCategoryTags,
     required TResult Function(_SaveSelectedTagIds value) saveSelectedTagIds,
     required TResult Function(_ClearSelectedTagIds value) clearSelectedTagIds,
   }) {
@@ -988,7 +954,6 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
     TResult? Function(_UpdateCategory value)? updateCategory,
     TResult? Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult? Function(_DeleteCategory value)? deleteCategory,
-    TResult? Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult? Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult? Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
   }) {
@@ -1006,7 +971,6 @@ class _$UpdateCategoryImpl implements _UpdateCategory {
     TResult Function(_UpdateCategory value)? updateCategory,
     TResult Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult Function(_DeleteCategory value)? deleteCategory,
-    TResult Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
     required TResult orElse(),
@@ -1100,7 +1064,6 @@ class _$UpdateCategoryTagsImpl implements _UpdateCategoryTags {
     required TResult Function(UpdateCategoryDto dto) updateCategory,
     required TResult Function(CreateCategoryTagsDto dto) updateCategoryTags,
     required TResult Function(DeleteCategoryDto dto) deleteCategory,
-    required TResult Function(String categoryId) deleteCategoryTags,
     required TResult Function(List<String> tagIds) saveSelectedTagIds,
     required TResult Function() clearSelectedTagIds,
   }) {
@@ -1117,7 +1080,6 @@ class _$UpdateCategoryTagsImpl implements _UpdateCategoryTags {
     TResult? Function(UpdateCategoryDto dto)? updateCategory,
     TResult? Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult? Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult? Function(String categoryId)? deleteCategoryTags,
     TResult? Function(List<String> tagIds)? saveSelectedTagIds,
     TResult? Function()? clearSelectedTagIds,
   }) {
@@ -1134,7 +1096,6 @@ class _$UpdateCategoryTagsImpl implements _UpdateCategoryTags {
     TResult Function(UpdateCategoryDto dto)? updateCategory,
     TResult Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult Function(String categoryId)? deleteCategoryTags,
     TResult Function(List<String> tagIds)? saveSelectedTagIds,
     TResult Function()? clearSelectedTagIds,
     required TResult orElse(),
@@ -1156,7 +1117,6 @@ class _$UpdateCategoryTagsImpl implements _UpdateCategoryTags {
     required TResult Function(_UpdateCategory value) updateCategory,
     required TResult Function(_UpdateCategoryTags value) updateCategoryTags,
     required TResult Function(_DeleteCategory value) deleteCategory,
-    required TResult Function(_DeleteCategoryTags value) deleteCategoryTags,
     required TResult Function(_SaveSelectedTagIds value) saveSelectedTagIds,
     required TResult Function(_ClearSelectedTagIds value) clearSelectedTagIds,
   }) {
@@ -1174,7 +1134,6 @@ class _$UpdateCategoryTagsImpl implements _UpdateCategoryTags {
     TResult? Function(_UpdateCategory value)? updateCategory,
     TResult? Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult? Function(_DeleteCategory value)? deleteCategory,
-    TResult? Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult? Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult? Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
   }) {
@@ -1192,7 +1151,6 @@ class _$UpdateCategoryTagsImpl implements _UpdateCategoryTags {
     TResult Function(_UpdateCategory value)? updateCategory,
     TResult Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult Function(_DeleteCategory value)? deleteCategory,
-    TResult Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
     required TResult orElse(),
@@ -1286,7 +1244,6 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
     required TResult Function(UpdateCategoryDto dto) updateCategory,
     required TResult Function(CreateCategoryTagsDto dto) updateCategoryTags,
     required TResult Function(DeleteCategoryDto dto) deleteCategory,
-    required TResult Function(String categoryId) deleteCategoryTags,
     required TResult Function(List<String> tagIds) saveSelectedTagIds,
     required TResult Function() clearSelectedTagIds,
   }) {
@@ -1303,7 +1260,6 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
     TResult? Function(UpdateCategoryDto dto)? updateCategory,
     TResult? Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult? Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult? Function(String categoryId)? deleteCategoryTags,
     TResult? Function(List<String> tagIds)? saveSelectedTagIds,
     TResult? Function()? clearSelectedTagIds,
   }) {
@@ -1320,7 +1276,6 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
     TResult Function(UpdateCategoryDto dto)? updateCategory,
     TResult Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult Function(String categoryId)? deleteCategoryTags,
     TResult Function(List<String> tagIds)? saveSelectedTagIds,
     TResult Function()? clearSelectedTagIds,
     required TResult orElse(),
@@ -1342,7 +1297,6 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
     required TResult Function(_UpdateCategory value) updateCategory,
     required TResult Function(_UpdateCategoryTags value) updateCategoryTags,
     required TResult Function(_DeleteCategory value) deleteCategory,
-    required TResult Function(_DeleteCategoryTags value) deleteCategoryTags,
     required TResult Function(_SaveSelectedTagIds value) saveSelectedTagIds,
     required TResult Function(_ClearSelectedTagIds value) clearSelectedTagIds,
   }) {
@@ -1360,7 +1314,6 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
     TResult? Function(_UpdateCategory value)? updateCategory,
     TResult? Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult? Function(_DeleteCategory value)? deleteCategory,
-    TResult? Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult? Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult? Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
   }) {
@@ -1378,7 +1331,6 @@ class _$DeleteCategoryImpl implements _DeleteCategory {
     TResult Function(_UpdateCategory value)? updateCategory,
     TResult Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult Function(_DeleteCategory value)? deleteCategory,
-    TResult Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
     required TResult orElse(),
@@ -1397,193 +1349,6 @@ abstract class _DeleteCategory implements CategoryEvent {
   DeleteCategoryDto get dto;
   @JsonKey(ignore: true)
   _$$DeleteCategoryImplCopyWith<_$DeleteCategoryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$DeleteCategoryTagsImplCopyWith<$Res> {
-  factory _$$DeleteCategoryTagsImplCopyWith(_$DeleteCategoryTagsImpl value,
-          $Res Function(_$DeleteCategoryTagsImpl) then) =
-      __$$DeleteCategoryTagsImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String categoryId});
-}
-
-/// @nodoc
-class __$$DeleteCategoryTagsImplCopyWithImpl<$Res>
-    extends _$CategoryEventCopyWithImpl<$Res, _$DeleteCategoryTagsImpl>
-    implements _$$DeleteCategoryTagsImplCopyWith<$Res> {
-  __$$DeleteCategoryTagsImplCopyWithImpl(_$DeleteCategoryTagsImpl _value,
-      $Res Function(_$DeleteCategoryTagsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? categoryId = null,
-  }) {
-    return _then(_$DeleteCategoryTagsImpl(
-      categoryId: null == categoryId
-          ? _value.categoryId
-          : categoryId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$DeleteCategoryTagsImpl implements _DeleteCategoryTags {
-  const _$DeleteCategoryTagsImpl({required this.categoryId});
-
-  @override
-  final String categoryId;
-
-  @override
-  String toString() {
-    return 'CategoryEvent.deleteCategoryTags(categoryId: $categoryId)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DeleteCategoryTagsImpl &&
-            (identical(other.categoryId, categoryId) ||
-                other.categoryId == categoryId));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, categoryId);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DeleteCategoryTagsImplCopyWith<_$DeleteCategoryTagsImpl> get copyWith =>
-      __$$DeleteCategoryTagsImplCopyWithImpl<_$DeleteCategoryTagsImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(GetAllCategoriesDto dto) getAllCategories,
-    required TResult Function() getAllCategoryTagsByCategoryId,
-    required TResult Function(CreateCategoryDto dto) createCategory,
-    required TResult Function(CreateCategoryTagsDto dto) createCategoryTags,
-    required TResult Function(UpdateCategoryDto dto) updateCategory,
-    required TResult Function(CreateCategoryTagsDto dto) updateCategoryTags,
-    required TResult Function(DeleteCategoryDto dto) deleteCategory,
-    required TResult Function(String categoryId) deleteCategoryTags,
-    required TResult Function(List<String> tagIds) saveSelectedTagIds,
-    required TResult Function() clearSelectedTagIds,
-  }) {
-    return deleteCategoryTags(categoryId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(GetAllCategoriesDto dto)? getAllCategories,
-    TResult? Function()? getAllCategoryTagsByCategoryId,
-    TResult? Function(CreateCategoryDto dto)? createCategory,
-    TResult? Function(CreateCategoryTagsDto dto)? createCategoryTags,
-    TResult? Function(UpdateCategoryDto dto)? updateCategory,
-    TResult? Function(CreateCategoryTagsDto dto)? updateCategoryTags,
-    TResult? Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult? Function(String categoryId)? deleteCategoryTags,
-    TResult? Function(List<String> tagIds)? saveSelectedTagIds,
-    TResult? Function()? clearSelectedTagIds,
-  }) {
-    return deleteCategoryTags?.call(categoryId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GetAllCategoriesDto dto)? getAllCategories,
-    TResult Function()? getAllCategoryTagsByCategoryId,
-    TResult Function(CreateCategoryDto dto)? createCategory,
-    TResult Function(CreateCategoryTagsDto dto)? createCategoryTags,
-    TResult Function(UpdateCategoryDto dto)? updateCategory,
-    TResult Function(CreateCategoryTagsDto dto)? updateCategoryTags,
-    TResult Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult Function(String categoryId)? deleteCategoryTags,
-    TResult Function(List<String> tagIds)? saveSelectedTagIds,
-    TResult Function()? clearSelectedTagIds,
-    required TResult orElse(),
-  }) {
-    if (deleteCategoryTags != null) {
-      return deleteCategoryTags(categoryId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetAllCategories value) getAllCategories,
-    required TResult Function(_GetAllCategoryTagsByCategoryId value)
-        getAllCategoryTagsByCategoryId,
-    required TResult Function(_CreateCategory value) createCategory,
-    required TResult Function(_CreateCategoryTags value) createCategoryTags,
-    required TResult Function(_UpdateCategory value) updateCategory,
-    required TResult Function(_UpdateCategoryTags value) updateCategoryTags,
-    required TResult Function(_DeleteCategory value) deleteCategory,
-    required TResult Function(_DeleteCategoryTags value) deleteCategoryTags,
-    required TResult Function(_SaveSelectedTagIds value) saveSelectedTagIds,
-    required TResult Function(_ClearSelectedTagIds value) clearSelectedTagIds,
-  }) {
-    return deleteCategoryTags(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetAllCategories value)? getAllCategories,
-    TResult? Function(_GetAllCategoryTagsByCategoryId value)?
-        getAllCategoryTagsByCategoryId,
-    TResult? Function(_CreateCategory value)? createCategory,
-    TResult? Function(_CreateCategoryTags value)? createCategoryTags,
-    TResult? Function(_UpdateCategory value)? updateCategory,
-    TResult? Function(_UpdateCategoryTags value)? updateCategoryTags,
-    TResult? Function(_DeleteCategory value)? deleteCategory,
-    TResult? Function(_DeleteCategoryTags value)? deleteCategoryTags,
-    TResult? Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
-    TResult? Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
-  }) {
-    return deleteCategoryTags?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetAllCategories value)? getAllCategories,
-    TResult Function(_GetAllCategoryTagsByCategoryId value)?
-        getAllCategoryTagsByCategoryId,
-    TResult Function(_CreateCategory value)? createCategory,
-    TResult Function(_CreateCategoryTags value)? createCategoryTags,
-    TResult Function(_UpdateCategory value)? updateCategory,
-    TResult Function(_UpdateCategoryTags value)? updateCategoryTags,
-    TResult Function(_DeleteCategory value)? deleteCategory,
-    TResult Function(_DeleteCategoryTags value)? deleteCategoryTags,
-    TResult Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
-    TResult Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
-    required TResult orElse(),
-  }) {
-    if (deleteCategoryTags != null) {
-      return deleteCategoryTags(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _DeleteCategoryTags implements CategoryEvent {
-  const factory _DeleteCategoryTags({required final String categoryId}) =
-      _$DeleteCategoryTagsImpl;
-
-  String get categoryId;
-  @JsonKey(ignore: true)
-  _$$DeleteCategoryTagsImplCopyWith<_$DeleteCategoryTagsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1666,7 +1431,6 @@ class _$SaveSelectedTagIdsImpl implements _SaveSelectedTagIds {
     required TResult Function(UpdateCategoryDto dto) updateCategory,
     required TResult Function(CreateCategoryTagsDto dto) updateCategoryTags,
     required TResult Function(DeleteCategoryDto dto) deleteCategory,
-    required TResult Function(String categoryId) deleteCategoryTags,
     required TResult Function(List<String> tagIds) saveSelectedTagIds,
     required TResult Function() clearSelectedTagIds,
   }) {
@@ -1683,7 +1447,6 @@ class _$SaveSelectedTagIdsImpl implements _SaveSelectedTagIds {
     TResult? Function(UpdateCategoryDto dto)? updateCategory,
     TResult? Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult? Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult? Function(String categoryId)? deleteCategoryTags,
     TResult? Function(List<String> tagIds)? saveSelectedTagIds,
     TResult? Function()? clearSelectedTagIds,
   }) {
@@ -1700,7 +1463,6 @@ class _$SaveSelectedTagIdsImpl implements _SaveSelectedTagIds {
     TResult Function(UpdateCategoryDto dto)? updateCategory,
     TResult Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult Function(String categoryId)? deleteCategoryTags,
     TResult Function(List<String> tagIds)? saveSelectedTagIds,
     TResult Function()? clearSelectedTagIds,
     required TResult orElse(),
@@ -1722,7 +1484,6 @@ class _$SaveSelectedTagIdsImpl implements _SaveSelectedTagIds {
     required TResult Function(_UpdateCategory value) updateCategory,
     required TResult Function(_UpdateCategoryTags value) updateCategoryTags,
     required TResult Function(_DeleteCategory value) deleteCategory,
-    required TResult Function(_DeleteCategoryTags value) deleteCategoryTags,
     required TResult Function(_SaveSelectedTagIds value) saveSelectedTagIds,
     required TResult Function(_ClearSelectedTagIds value) clearSelectedTagIds,
   }) {
@@ -1740,7 +1501,6 @@ class _$SaveSelectedTagIdsImpl implements _SaveSelectedTagIds {
     TResult? Function(_UpdateCategory value)? updateCategory,
     TResult? Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult? Function(_DeleteCategory value)? deleteCategory,
-    TResult? Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult? Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult? Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
   }) {
@@ -1758,7 +1518,6 @@ class _$SaveSelectedTagIdsImpl implements _SaveSelectedTagIds {
     TResult Function(_UpdateCategory value)? updateCategory,
     TResult Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult Function(_DeleteCategory value)? deleteCategory,
-    TResult Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
     required TResult orElse(),
@@ -1826,7 +1585,6 @@ class _$ClearSelectedTagIdsImpl implements _ClearSelectedTagIds {
     required TResult Function(UpdateCategoryDto dto) updateCategory,
     required TResult Function(CreateCategoryTagsDto dto) updateCategoryTags,
     required TResult Function(DeleteCategoryDto dto) deleteCategory,
-    required TResult Function(String categoryId) deleteCategoryTags,
     required TResult Function(List<String> tagIds) saveSelectedTagIds,
     required TResult Function() clearSelectedTagIds,
   }) {
@@ -1843,7 +1601,6 @@ class _$ClearSelectedTagIdsImpl implements _ClearSelectedTagIds {
     TResult? Function(UpdateCategoryDto dto)? updateCategory,
     TResult? Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult? Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult? Function(String categoryId)? deleteCategoryTags,
     TResult? Function(List<String> tagIds)? saveSelectedTagIds,
     TResult? Function()? clearSelectedTagIds,
   }) {
@@ -1860,7 +1617,6 @@ class _$ClearSelectedTagIdsImpl implements _ClearSelectedTagIds {
     TResult Function(UpdateCategoryDto dto)? updateCategory,
     TResult Function(CreateCategoryTagsDto dto)? updateCategoryTags,
     TResult Function(DeleteCategoryDto dto)? deleteCategory,
-    TResult Function(String categoryId)? deleteCategoryTags,
     TResult Function(List<String> tagIds)? saveSelectedTagIds,
     TResult Function()? clearSelectedTagIds,
     required TResult orElse(),
@@ -1882,7 +1638,6 @@ class _$ClearSelectedTagIdsImpl implements _ClearSelectedTagIds {
     required TResult Function(_UpdateCategory value) updateCategory,
     required TResult Function(_UpdateCategoryTags value) updateCategoryTags,
     required TResult Function(_DeleteCategory value) deleteCategory,
-    required TResult Function(_DeleteCategoryTags value) deleteCategoryTags,
     required TResult Function(_SaveSelectedTagIds value) saveSelectedTagIds,
     required TResult Function(_ClearSelectedTagIds value) clearSelectedTagIds,
   }) {
@@ -1900,7 +1655,6 @@ class _$ClearSelectedTagIdsImpl implements _ClearSelectedTagIds {
     TResult? Function(_UpdateCategory value)? updateCategory,
     TResult? Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult? Function(_DeleteCategory value)? deleteCategory,
-    TResult? Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult? Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult? Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
   }) {
@@ -1918,7 +1672,6 @@ class _$ClearSelectedTagIdsImpl implements _ClearSelectedTagIds {
     TResult Function(_UpdateCategory value)? updateCategory,
     TResult Function(_UpdateCategoryTags value)? updateCategoryTags,
     TResult Function(_DeleteCategory value)? deleteCategory,
-    TResult Function(_DeleteCategoryTags value)? deleteCategoryTags,
     TResult Function(_SaveSelectedTagIds value)? saveSelectedTagIds,
     TResult Function(_ClearSelectedTagIds value)? clearSelectedTagIds,
     required TResult orElse(),

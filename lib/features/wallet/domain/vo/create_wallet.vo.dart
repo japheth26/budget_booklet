@@ -5,22 +5,19 @@ import 'package:hani/features/wallet/data/dto/create_wallet.dto.dart';
 
 class CreateWalletVo extends Equatable {
   final String name;
-  final double initial;
   final String createdBy;
 
   const CreateWalletVo({
     required this.name,
-    required this.initial,
     required this.createdBy,
   });
 
   @override
-  List<Object?> get props => [name, initial];
+  List<Object?> get props => [name, createdBy];
 
   static Result<CreateWalletVo> create(CreateWalletDto dto) {
     final guardResult = Guard.combine([
       Guard.againstEmptyString('Name', dto.name),
-      Guard.againstUndefined('Initial Amount', dto.initial),
       Guard.againstEmptyString('Created By ID', dto.createdBy),
     ]);
 
@@ -30,7 +27,6 @@ class CreateWalletVo extends Equatable {
 
     final data = CreateWalletVo(
       name: dto.name!,
-      initial: dto.initial!,
       createdBy: dto.createdBy!,
     );
 

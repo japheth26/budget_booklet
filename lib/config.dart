@@ -14,4 +14,5 @@ class Config {
   static String CATEGORY_COLLECTION_ID = dotenv.env['CATEGORY_COLLECTION_ID']!;
   static String CATEGORY_TAG_COLLECTION_ID =
       dotenv.env['CATEGORY_TAG_COLLECTION_ID']!;
+  static String MONTHLY_RECORD = dotenv.env['MONTHLY_RECORD']!;
 }

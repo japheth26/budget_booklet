@@ -8,9 +8,6 @@ class WalletDto with _$WalletDto {
   const factory WalletDto(
     String? walletId,
     String? name,
-    double? initial,
-    double? income,
-    double? expense,
     String? createdBy,
   ) = _WalletDto;
 

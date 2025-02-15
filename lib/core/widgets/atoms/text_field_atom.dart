@@ -44,7 +44,7 @@ class TextFieldAtom extends StatelessWidget {
     final ColorTheme colorTheme = ColorThemeUtils.getColors(context);
     const double borderRadius = 15;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
         key: globalKey,
         focusNode: focusNode,

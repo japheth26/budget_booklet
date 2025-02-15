@@ -5,6 +5,8 @@ import 'package:hani/config.dart';
 import 'package:hani/features/wallet/domain/vo/create_wallet.vo.dart';
 import 'package:injectable/injectable.dart';
 
+import '../dto/wallet.dto.dart';
+
 @lazySingleton
 class WalletRemoteDatasource {
   late Databases _databases;
@@ -16,8 +18,8 @@ class WalletRemoteDatasource {
     _walletCollectionId = Config.WALLETS_COLLECTION_ID;
   }
 
-  Future<DocumentList> getWallets(List<String> walletIds) async {
-    final documents = await _databases.listDocuments(
+  Future<List<WalletDto>> getWallets(List<String> walletIds) async {
+    final docs = await _databases.listDocuments(
       databaseId: _budgetBookletDB,
       collectionId: _walletCollectionId,
       queries: [
@@ -25,11 +27,17 @@ class WalletRemoteDatasource {
       ],
     );
 
-    return documents;
+    final List<WalletDto> result = [];
+
+    for (final doc in docs.documents) {
+      result.add(WalletDto.fromJson(doc.data));
+    }
+
+    return result;
   }
 
-  Future<DocumentList> getWalletsByUserId(String userId) async {
-    final documents = await _databases.listDocuments(
+  Future<List<WalletDto>> getWalletsByUserId(String userId) async {
+    final docs = await _databases.listDocuments(
       databaseId: _budgetBookletDB,
       collectionId: _walletCollectionId,
       queries: [
@@ -37,16 +45,21 @@ class WalletRemoteDatasource {
       ],
     );
 
-    return documents;
+    final List<WalletDto> result = [];
+
+    for (final doc in docs.documents) {
+      result.add(WalletDto.fromJson(doc.data));
+    }
+
+    return result;
   }
 
-  Future<Document> createWallet(CreateWalletVo vo) async {
+  Future<WalletDto> createWallet(CreateWalletVo vo) async {
     final String id = DateTime.now().millisecondsSinceEpoch.toString();
 
     final Map<String, dynamic> data = {
       'walletId': id,
       'name': vo.name,
-      'initial': vo.initial,
       'createdBy': vo.createdBy,
     };
 
@@ -56,6 +69,6 @@ class WalletRemoteDatasource {
         documentId: id,
         data: data);
 
-    return document;
+    return WalletDto.fromJson(document.data);
   }
 }

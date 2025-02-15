@@ -33,6 +33,12 @@ import '../../features/category/data/repositories/category_tag.repository.dart'
     as _i950;
 import '../../features/category/domain/bloc/category/category_bloc.dart'
     as _i618;
+import '../../features/monthly_record/data/datasources/monthly_record_remote.datasource.dart'
+    as _i252;
+import '../../features/monthly_record/data/repositories/monthly_record.repository.dart'
+    as _i246;
+import '../../features/monthly_record/domain/bloc/monthly_record/monthly_record_bloc.dart'
+    as _i158;
 import '../../features/tag/data/datasources/tag_remote.datasource.dart'
     as _i558;
 import '../../features/tag/data/repositories/tag.repository.dart' as _i451;
@@ -90,6 +96,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i558.TagRemoteDatasource(gh<_i317.Databases>()));
     gh.lazySingleton<_i967.CategoryTagsRemoteDatasource>(
         () => _i967.CategoryTagsRemoteDatasource(gh<_i317.Databases>()));
+    gh.lazySingleton<_i252.MonthlyRecordRemoteDatasource>(
+        () => _i252.MonthlyRecordRemoteDatasource(gh<_i317.Databases>()));
     gh.lazySingleton<_i950.CategoryTagRepository>(
         () => _i950.CategoryTagRepository(
               gh<_i974.Logger>(),
@@ -123,6 +131,11 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i339.CategoryRemoteDatasource>(),
           gh<_i967.CategoryTagsRemoteDatasource>(),
         ));
+    gh.lazySingleton<_i246.MonthlyRecordRepository>(
+        () => _i246.MonthlyRecordRepository(
+              gh<_i974.Logger>(),
+              gh<_i252.MonthlyRecordRemoteDatasource>(),
+            ));
     gh.lazySingleton<_i185.TagBloc>(
         () => _i185.TagBloc(gh<_i451.TagRepository>()));
     gh.lazySingleton<_i780.AuthBloc>(
@@ -131,6 +144,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i410.CategoryRepository>(),
           gh<_i950.CategoryTagRepository>(),
         ));
+    gh.lazySingleton<_i158.MonthlyRecordBloc>(
+        () => _i158.MonthlyRecordBloc(gh<_i246.MonthlyRecordRepository>()));
     return this;
   }
 }

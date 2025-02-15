@@ -23,12 +23,12 @@ class WalletRepository {
     try {
       if (walletIds.isEmpty) return const Result.ok(data: []);
 
-      final result = await _walletRemoteDatasource.getWallets(walletIds);
+      final dtos = await _walletRemoteDatasource.getWallets(walletIds);
 
       final List<WalletEntity> data = [];
 
-      for (final doc in result.documents) {
-        final entityOrError = WalletEntity.create(WalletDto.fromJson(doc.data));
+      for (final dto in dtos) {
+        final entityOrError = WalletEntity.create(dto);
 
         if (entityOrError.isFailure) {
           return Result.fail(error: entityOrError.getError);
@@ -47,12 +47,12 @@ class WalletRepository {
 
   Future<Result<List<WalletEntity>>> getWalletsByUserId(String userId) async {
     try {
-      final result = await _walletRemoteDatasource.getWalletsByUserId(userId);
+      final dtos = await _walletRemoteDatasource.getWalletsByUserId(userId);
 
       final List<WalletEntity> data = [];
 
-      for (final doc in result.documents) {
-        final entityOrError = WalletEntity.create(WalletDto.fromJson(doc.data));
+      for (final dto in dtos) {
+        final entityOrError = WalletEntity.create(dto);
 
         if (entityOrError.isFailure) {
           return Result.fail(error: entityOrError.getError);
@@ -71,9 +71,9 @@ class WalletRepository {
 
   Future<Result<WalletEntity>> createWallet(CreateWalletVo vo) async {
     try {
-      final result = await _walletRemoteDatasource.createWallet(vo);
+      final dto = await _walletRemoteDatasource.createWallet(vo);
 
-      return WalletEntity.create(WalletDto.fromJson(result.data));
+      return WalletEntity.create(dto);
     } catch (e) {
       _logger.e(e.toString());
 

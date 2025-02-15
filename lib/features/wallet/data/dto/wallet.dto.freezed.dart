@@ -22,9 +22,6 @@ WalletDto _$WalletDtoFromJson(Map<String, dynamic> json) {
 mixin _$WalletDto {
   String? get walletId => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  double? get initial => throw _privateConstructorUsedError;
-  double? get income => throw _privateConstructorUsedError;
-  double? get expense => throw _privateConstructorUsedError;
   String? get createdBy => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,13 +35,7 @@ abstract class $WalletDtoCopyWith<$Res> {
   factory $WalletDtoCopyWith(WalletDto value, $Res Function(WalletDto) then) =
       _$WalletDtoCopyWithImpl<$Res, WalletDto>;
   @useResult
-  $Res call(
-      {String? walletId,
-      String? name,
-      double? initial,
-      double? income,
-      double? expense,
-      String? createdBy});
+  $Res call({String? walletId, String? name, String? createdBy});
 }
 
 /// @nodoc
@@ -62,9 +53,6 @@ class _$WalletDtoCopyWithImpl<$Res, $Val extends WalletDto>
   $Res call({
     Object? walletId = freezed,
     Object? name = freezed,
-    Object? initial = freezed,
-    Object? income = freezed,
-    Object? expense = freezed,
     Object? createdBy = freezed,
   }) {
     return _then(_value.copyWith(
@@ -76,18 +64,6 @@ class _$WalletDtoCopyWithImpl<$Res, $Val extends WalletDto>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      initial: freezed == initial
-          ? _value.initial
-          : initial // ignore: cast_nullable_to_non_nullable
-              as double?,
-      income: freezed == income
-          ? _value.income
-          : income // ignore: cast_nullable_to_non_nullable
-              as double?,
-      expense: freezed == expense
-          ? _value.expense
-          : expense // ignore: cast_nullable_to_non_nullable
-              as double?,
       createdBy: freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
@@ -104,13 +80,7 @@ abstract class _$$WalletDtoImplCopyWith<$Res>
       __$$WalletDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String? walletId,
-      String? name,
-      double? initial,
-      double? income,
-      double? expense,
-      String? createdBy});
+  $Res call({String? walletId, String? name, String? createdBy});
 }
 
 /// @nodoc
@@ -126,9 +96,6 @@ class __$$WalletDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? walletId = freezed,
     Object? name = freezed,
-    Object? initial = freezed,
-    Object? income = freezed,
-    Object? expense = freezed,
     Object? createdBy = freezed,
   }) {
     return _then(_$WalletDtoImpl(
@@ -140,18 +107,6 @@ class __$$WalletDtoImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      freezed == initial
-          ? _value.initial
-          : initial // ignore: cast_nullable_to_non_nullable
-              as double?,
-      freezed == income
-          ? _value.income
-          : income // ignore: cast_nullable_to_non_nullable
-              as double?,
-      freezed == expense
-          ? _value.expense
-          : expense // ignore: cast_nullable_to_non_nullable
-              as double?,
       freezed == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
@@ -163,9 +118,7 @@ class __$$WalletDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$WalletDtoImpl extends _WalletDto {
-  const _$WalletDtoImpl(this.walletId, this.name, this.initial, this.income,
-      this.expense, this.createdBy)
-      : super._();
+  const _$WalletDtoImpl(this.walletId, this.name, this.createdBy) : super._();
 
   factory _$WalletDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$WalletDtoImplFromJson(json);
@@ -175,17 +128,11 @@ class _$WalletDtoImpl extends _WalletDto {
   @override
   final String? name;
   @override
-  final double? initial;
-  @override
-  final double? income;
-  @override
-  final double? expense;
-  @override
   final String? createdBy;
 
   @override
   String toString() {
-    return 'WalletDto(walletId: $walletId, name: $name, initial: $initial, income: $income, expense: $expense, createdBy: $createdBy)';
+    return 'WalletDto(walletId: $walletId, name: $name, createdBy: $createdBy)';
   }
 
   @override
@@ -196,17 +143,13 @@ class _$WalletDtoImpl extends _WalletDto {
             (identical(other.walletId, walletId) ||
                 other.walletId == walletId) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.initial, initial) || other.initial == initial) &&
-            (identical(other.income, income) || other.income == income) &&
-            (identical(other.expense, expense) || other.expense == expense) &&
             (identical(other.createdBy, createdBy) ||
                 other.createdBy == createdBy));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, walletId, name, initial, income, expense, createdBy);
+  int get hashCode => Object.hash(runtimeType, walletId, name, createdBy);
 
   @JsonKey(ignore: true)
   @override
@@ -224,12 +167,8 @@ class _$WalletDtoImpl extends _WalletDto {
 
 abstract class _WalletDto extends WalletDto {
   const factory _WalletDto(
-      final String? walletId,
-      final String? name,
-      final double? initial,
-      final double? income,
-      final double? expense,
-      final String? createdBy) = _$WalletDtoImpl;
+          final String? walletId, final String? name, final String? createdBy) =
+      _$WalletDtoImpl;
   const _WalletDto._() : super._();
 
   factory _WalletDto.fromJson(Map<String, dynamic> json) =
@@ -239,12 +178,6 @@ abstract class _WalletDto extends WalletDto {
   String? get walletId;
   @override
   String? get name;
-  @override
-  double? get initial;
-  @override
-  double? get income;
-  @override
-  double? get expense;
   @override
   String? get createdBy;
   @override

@@ -16,17 +16,11 @@ class TransactionType {
 class WalletEntity extends Equatable {
   final String walletId;
   final String name;
-  final double initial;
-  final double income;
-  final double expense;
   final String createdBy;
 
   const WalletEntity({
     required this.walletId,
     required this.name,
-    required this.initial,
-    required this.income,
-    required this.expense,
     required this.createdBy,
   });
 
@@ -34,9 +28,6 @@ class WalletEntity extends Equatable {
   List<Object?> get props => [
         walletId,
         name,
-        initial,
-        income,
-        expense,
         createdBy,
       ];
 
@@ -54,9 +45,6 @@ class WalletEntity extends Equatable {
     final WalletEntity data = WalletEntity(
       walletId: dto.walletId!,
       name: dto.name!,
-      initial: dto.initial ?? 0,
-      income: dto.income ?? 0,
-      expense: dto.expense ?? 0,
       createdBy: dto.createdBy!,
     );
 
