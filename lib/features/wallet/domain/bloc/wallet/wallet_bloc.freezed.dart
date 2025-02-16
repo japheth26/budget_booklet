@@ -681,6 +681,7 @@ mixin _$WalletState {
   bool get walletAdded => throw _privateConstructorUsedError;
   bool get walletsRetrieved => throw _privateConstructorUsedError;
   bool get unassignedWalletsFixed => throw _privateConstructorUsedError;
+  WalletEntity? get addedWallet => throw _privateConstructorUsedError;
   WalletEntity? get selectedWallet => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -702,6 +703,7 @@ abstract class $WalletStateCopyWith<$Res> {
       bool walletAdded,
       bool walletsRetrieved,
       bool unassignedWalletsFixed,
+      WalletEntity? addedWallet,
       WalletEntity? selectedWallet});
 }
 
@@ -725,6 +727,7 @@ class _$WalletStateCopyWithImpl<$Res, $Val extends WalletState>
     Object? walletAdded = null,
     Object? walletsRetrieved = null,
     Object? unassignedWalletsFixed = null,
+    Object? addedWallet = freezed,
     Object? selectedWallet = freezed,
   }) {
     return _then(_value.copyWith(
@@ -756,6 +759,10 @@ class _$WalletStateCopyWithImpl<$Res, $Val extends WalletState>
           ? _value.unassignedWalletsFixed
           : unassignedWalletsFixed // ignore: cast_nullable_to_non_nullable
               as bool,
+      addedWallet: freezed == addedWallet
+          ? _value.addedWallet
+          : addedWallet // ignore: cast_nullable_to_non_nullable
+              as WalletEntity?,
       selectedWallet: freezed == selectedWallet
           ? _value.selectedWallet
           : selectedWallet // ignore: cast_nullable_to_non_nullable
@@ -780,6 +787,7 @@ abstract class _$$WalletStateImplCopyWith<$Res>
       bool walletAdded,
       bool walletsRetrieved,
       bool unassignedWalletsFixed,
+      WalletEntity? addedWallet,
       WalletEntity? selectedWallet});
 }
 
@@ -801,6 +809,7 @@ class __$$WalletStateImplCopyWithImpl<$Res>
     Object? walletAdded = null,
     Object? walletsRetrieved = null,
     Object? unassignedWalletsFixed = null,
+    Object? addedWallet = freezed,
     Object? selectedWallet = freezed,
   }) {
     return _then(_$WalletStateImpl(
@@ -832,6 +841,10 @@ class __$$WalletStateImplCopyWithImpl<$Res>
           ? _value.unassignedWalletsFixed
           : unassignedWalletsFixed // ignore: cast_nullable_to_non_nullable
               as bool,
+      addedWallet: freezed == addedWallet
+          ? _value.addedWallet
+          : addedWallet // ignore: cast_nullable_to_non_nullable
+              as WalletEntity?,
       selectedWallet: freezed == selectedWallet
           ? _value.selectedWallet
           : selectedWallet // ignore: cast_nullable_to_non_nullable
@@ -851,6 +864,7 @@ class _$WalletStateImpl implements _WalletState {
       required this.walletAdded,
       required this.walletsRetrieved,
       required this.unassignedWalletsFixed,
+      this.addedWallet,
       this.selectedWallet})
       : _wallets = wallets;
 
@@ -875,11 +889,13 @@ class _$WalletStateImpl implements _WalletState {
   @override
   final bool unassignedWalletsFixed;
   @override
+  final WalletEntity? addedWallet;
+  @override
   final WalletEntity? selectedWallet;
 
   @override
   String toString() {
-    return 'WalletState(stateStatus: $stateStatus, errorMessage: $errorMessage, successMessage: $successMessage, wallets: $wallets, walletAdded: $walletAdded, walletsRetrieved: $walletsRetrieved, unassignedWalletsFixed: $unassignedWalletsFixed, selectedWallet: $selectedWallet)';
+    return 'WalletState(stateStatus: $stateStatus, errorMessage: $errorMessage, successMessage: $successMessage, wallets: $wallets, walletAdded: $walletAdded, walletsRetrieved: $walletsRetrieved, unassignedWalletsFixed: $unassignedWalletsFixed, addedWallet: $addedWallet, selectedWallet: $selectedWallet)';
   }
 
   @override
@@ -900,6 +916,8 @@ class _$WalletStateImpl implements _WalletState {
                 other.walletsRetrieved == walletsRetrieved) &&
             (identical(other.unassignedWalletsFixed, unassignedWalletsFixed) ||
                 other.unassignedWalletsFixed == unassignedWalletsFixed) &&
+            (identical(other.addedWallet, addedWallet) ||
+                other.addedWallet == addedWallet) &&
             (identical(other.selectedWallet, selectedWallet) ||
                 other.selectedWallet == selectedWallet));
   }
@@ -914,6 +932,7 @@ class _$WalletStateImpl implements _WalletState {
       walletAdded,
       walletsRetrieved,
       unassignedWalletsFixed,
+      addedWallet,
       selectedWallet);
 
   @JsonKey(ignore: true)
@@ -932,6 +951,7 @@ abstract class _WalletState implements WalletState {
       required final bool walletAdded,
       required final bool walletsRetrieved,
       required final bool unassignedWalletsFixed,
+      final WalletEntity? addedWallet,
       final WalletEntity? selectedWallet}) = _$WalletStateImpl;
 
   @override
@@ -948,6 +968,8 @@ abstract class _WalletState implements WalletState {
   bool get walletsRetrieved;
   @override
   bool get unassignedWalletsFixed;
+  @override
+  WalletEntity? get addedWallet;
   @override
   WalletEntity? get selectedWallet;
   @override

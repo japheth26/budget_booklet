@@ -58,6 +58,7 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
 
       emit(WalletState.addWallet(state, result.getValue));
       emit(WalletState.walletAdded(state));
+
       emit(WalletState.success(state, 'Wallet has been added'));
 
       emit(WalletState.loaded(state));

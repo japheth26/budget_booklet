@@ -24,6 +24,7 @@ class WalletCardAtom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorTheme colorTheme = ColorThemeUtils.getColors(context);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
@@ -52,20 +53,7 @@ class WalletCardAtom extends StatelessWidget {
           dense: true,
           leading: SizedBox(
             width: 50,
-            child: PieChart(
-              PieChartData(
-                sections: [
-                  ...(pieChartDataList ?? []).map((e) {
-                    return PieChartSectionData(
-                      showTitle: false,
-                      value: e.value,
-                      color: e.color,
-                      radius: 10,
-                    );
-                  }),
-                ],
-              ),
-            ),
+            child: _getPieChart(),
           ),
           isThreeLine: true,
           subtitle: Column(
@@ -94,5 +82,43 @@ class WalletCardAtom extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _getPieChart() {
+    final totalValue = (pieChartDataList ?? []).isNotEmpty
+        ? (pieChartDataList ?? []).map((e) => e.value ?? 0).reduce((acc, curr) {
+            return acc + curr;
+          })
+        : 0;
+
+    if (totalValue > 0) {
+      return PieChart(
+        PieChartData(
+          sections: [
+            ...(pieChartDataList ?? []).map((e) {
+              return PieChartSectionData(
+                showTitle: false,
+                value: e.value,
+                color: e.color,
+                radius: 10,
+              );
+            }),
+          ],
+        ),
+      );
+    } else {
+      return PieChart(
+        PieChartData(
+          sections: [
+            PieChartSectionData(
+              showTitle: false,
+              value: 100,
+              color: Colors.grey,
+              radius: 10,
+            )
+          ],
+        ),
+      );
+    }
   }
 }

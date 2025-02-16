@@ -57,7 +57,7 @@ class MonthlyRecordRepository {
           vo.walletId, vo.month, vo.year);
 
       if (existing != null) {
-        return const Result.fail(error: 'Record is already exists!');
+        dto = existing;
       }
       dto = await _monthlyRecordRemoteDatasource.createMonthlyRecord(vo);
 

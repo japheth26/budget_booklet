@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hani/core/controller/masked_text_controller.dart';
 import 'package:hani/core/dependency_injection/injection.dart';
+import 'package:hani/core/widgets/dialog/global_dialog.dart';
 import 'package:hani/features/auth/domain/bloc/auth/auth_bloc.dart';
+import 'package:hani/features/monthly_record/data/dto/create_monthly_record.dto.dart';
+import 'package:hani/features/monthly_record/domain/bloc/monthly_record/monthly_record_bloc.dart';
 import 'package:hani/features/wallet/data/dto/create_wallet.dto.dart';
 import 'package:hani/features/wallet/domain/bloc/wallet/wallet_bloc.dart';
+import 'package:hani/features/wallet/domain/entity/wallet.entity.dart';
 import 'package:hani/features/wallet/presentation/templates/wallet_form/wallet_form_params.dart';
 import 'package:hani/features/wallet/presentation/templates/wallet_form/wallet_form_template.dart';
 
@@ -39,6 +43,7 @@ class _WalletFormPageState extends State<WalletFormPage> {
   late StackRouter _router;
   late WalletBloc _walletBloc;
   late AuthBloc _authBloc;
+  late MonthlyRecordBloc _monthlyRecordBloc;
 
   late String _userId;
 
@@ -49,6 +54,7 @@ class _WalletFormPageState extends State<WalletFormPage> {
     _router = AutoRouter.of(context);
     _walletBloc = getIt<WalletBloc>();
     _authBloc = getIt<AuthBloc>();
+    _monthlyRecordBloc = getIt<MonthlyRecordBloc>();
 
     _userId = _authBloc.state.authUserEntity!.userId;
   }
@@ -108,7 +114,9 @@ class _WalletFormPageState extends State<WalletFormPage> {
 
   void _handleWalletListener(BuildContext context, WalletState state) {
     if (state.walletAdded) {
+      _handleCreateMonthlyRecord(state.addedWallet!);
       _clearFields();
+      _router.maybePop();
     }
   }
 
@@ -164,5 +172,28 @@ class _WalletFormPageState extends State<WalletFormPage> {
         ),
       );
     }
+  }
+
+  void _handleCreateMonthlyRecord(WalletEntity wallet) {
+    final initialAmount =
+        double.parse(_initialAmountController.text.replaceAll(',', ''));
+    final spendingAmount =
+        double.parse(_spendAmountController.text.replaceAll(',', ''));
+    final saveAmount =
+        double.parse(_saveAmountController.text.replaceAll(',', ''));
+    final month = DateTime.now().month;
+    final year = DateTime.now().year;
+
+    final dto = CreateMonthlyRecordDto(
+      walletId: wallet.walletId,
+      initialAmount: initialAmount,
+      spendingAmount: spendingAmount,
+      savingAmount: saveAmount,
+      goal: _goalController.text,
+      plan: _planController.text,
+      month: month,
+      year: year,
+    );
+    _monthlyRecordBloc.add(MonthlyRecordEvent.createMonthlyRecord(dto: dto));
   }
 }

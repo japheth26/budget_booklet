@@ -10,6 +10,7 @@ class WalletState with _$WalletState {
     required bool walletAdded,
     required bool walletsRetrieved,
     required bool unassignedWalletsFixed,
+    WalletEntity? addedWallet,
     WalletEntity? selectedWallet,
   }) = _WalletState;
 
@@ -40,7 +41,8 @@ class WalletState with _$WalletState {
 
     wallets.add(wallet);
 
-    return state.copyWith(wallets: wallets, walletAdded: true);
+    return state.copyWith(
+        wallets: wallets, walletAdded: true, addedWallet: wallet);
   }
 
   factory WalletState.walletAdded(WalletState state) =>
