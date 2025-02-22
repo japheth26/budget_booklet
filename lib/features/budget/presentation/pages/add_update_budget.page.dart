@@ -27,6 +27,7 @@ class _AddUpdateBudgetPageState extends State<AddUpdateBudgetPage> {
   final GlobalKey<FormFieldState> _amountGlobalKey = GlobalKey();
 
   late StackRouter _router;
+  late DateTimeRange? _timeRange;
 
   @override
   void initState() {
@@ -71,13 +72,43 @@ class _AddUpdateBudgetPageState extends State<AddUpdateBudgetPage> {
             Guard.againstZero('Amount', value)
           ]);
         },
+        onDateTimeRangeSelected: (timeRange) {
+          _timeRange = timeRange;
+        },
         onSubmit: () {
           final isNameValid = _nameGlobalKey.currentState!.validate();
           final isAmountValid = _amountGlobalKey.currentState!.validate();
 
-          if (isNameValid && isAmountValid) {}
+          if (isNameValid && isAmountValid) {
+            _createBudget();
+          }
         },
       ),
     );
+  }
+
+  void _createBudget() {
+    final name = _nameController.text;
+    final amount = double.parse(_amountController.text.replaceAll(',', ''));
+    final notes = _notesController.text;
+    final now = DateTime.now();
+
+    late DateTime from;
+    late DateTime to;
+
+    if (_timeRange == null) {
+      from = DateTime(now.year, now.month, 1);
+      to = DateTime(now.year, now.month + 1, 1)
+          .subtract(const Duration(days: 1));
+    } else {
+      from = _timeRange!.start;
+      to = _timeRange!.end;
+    }
+
+    print('name: $name');
+    print('amount: $amount');
+    print('notes: $notes');
+    print('from: ${from.toIso8601String()}');
+    print('to: ${to.toIso8601String()}');
   }
 }

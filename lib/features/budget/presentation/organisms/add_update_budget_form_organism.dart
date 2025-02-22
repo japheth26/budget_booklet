@@ -43,7 +43,7 @@ class AddUpdateBudgetFormOrganism extends StatelessWidget {
           AddUpdateBudgetHeaderAtom(existingBudget: existingBudget),
           const SizedBox(height: 20),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: AddUpdateBudgetFieldsMolecule(
               nameController: nameController,
               amountController: amountController,

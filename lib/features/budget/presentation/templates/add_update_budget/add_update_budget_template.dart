@@ -5,7 +5,6 @@ import 'package:hani/features/budget/presentation/templates/add_update_budget/ad
 
 import '../../../../../core/color/color_theme.dart';
 import '../../../../../core/color/custom_color.dart';
-import '../../../../../core/dependency_injection/injection.dart';
 import '../../../../../core/sizes/app_sizes.dart';
 
 class AddUpdateBudgetTemplate extends StatelessWidget {

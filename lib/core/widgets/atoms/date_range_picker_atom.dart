@@ -53,7 +53,7 @@ class DateRangePickerAtom extends StatelessWidget {
     const double borderRadius = 15;
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
         key: globalKey,
         focusNode: focusNode,
