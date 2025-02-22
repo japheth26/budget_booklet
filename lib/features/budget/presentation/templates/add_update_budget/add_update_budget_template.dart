@@ -11,10 +11,10 @@ import '../../../../../core/sizes/app_sizes.dart';
 class AddUpdateBudgetTemplate extends StatelessWidget {
   const AddUpdateBudgetTemplate({
     super.key,
-    this.addUpdateBudgetParams,
+    this.params,
   });
 
-  final AddUpdateBudgetParams? addUpdateBudgetParams;
+  final AddUpdateBudgetParams? params;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class AddUpdateBudgetTemplate extends StatelessWidget {
             backgroundColor: colorTheme.primaryGreen_blueGrey800WithOpacity3,
             centerTitle: false,
             leading: GestureDetector(
-              onTap: addUpdateBudgetParams?.onBackPressed,
+              onTap: params?.onBackPressed,
               child: const Icon(
                 FontAwesomeIcons.chevronLeft,
                 color: Colors.white,
@@ -42,17 +42,17 @@ class AddUpdateBudgetTemplate extends StatelessWidget {
           ),
           body: SingleChildScrollView(
             child: AddUpdateBudgetFormOrganism(
-              existingBudget: addUpdateBudgetParams?.existingBudget ?? false,
-              nameController: addUpdateBudgetParams?.nameController,
-              amountController: addUpdateBudgetParams?.amountController,
-              dateRangePickerController:
-                  addUpdateBudgetParams?.dateRangePickerController,
-              notesController: addUpdateBudgetParams?.notesController,
-              amountGlobalKey: addUpdateBudgetParams?.amountGlobalKey,
-              nameGlobalKey: addUpdateBudgetParams?.nameGlobalKey,
-              nameValidator: addUpdateBudgetParams?.nameValidator,
-              amountValidator: addUpdateBudgetParams?.amountValidator,
-              onSubmit: addUpdateBudgetParams?.onSubmit,
+              existingBudget: params?.existingBudget ?? false,
+              nameController: params?.nameController,
+              amountController: params?.amountController,
+              dateRangePickerController: params?.dateRangePickerController,
+              notesController: params?.notesController,
+              amountGlobalKey: params?.amountGlobalKey,
+              nameGlobalKey: params?.nameGlobalKey,
+              nameValidator: params?.nameValidator,
+              amountValidator: params?.amountValidator,
+              onSubmit: params?.onSubmit,
+              onDateTimeRangeSelected: params?.onDateTimeRangeSelected,
             ),
           )),
     );

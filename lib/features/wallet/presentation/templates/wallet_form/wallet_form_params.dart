@@ -12,6 +12,7 @@ class WalletFormParams {
     this.saveAmountValidator,
     this.loading = false,
     this.existing = false,
+    this.createRecordOnly = false,
     this.nameController,
     this.initialAmountController,
     this.nameGlobalKey,
@@ -24,6 +25,7 @@ class WalletFormParams {
 
   final bool loading;
   final bool existing;
+  final bool createRecordOnly;
 
   final TextEditingController? nameController;
   final TextEditingController? initialAmountController;

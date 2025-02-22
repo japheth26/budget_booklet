@@ -8,6 +8,7 @@ class WalletFormOrganism extends StatelessWidget {
       {super.key,
       this.loading = false,
       this.existing = false,
+      this.createRecordOnly = false,
       this.nameController,
       this.initialAmountController,
       this.nameGlobalKey,
@@ -26,6 +27,7 @@ class WalletFormOrganism extends StatelessWidget {
 
   final bool loading;
   final bool existing;
+  final bool createRecordOnly;
 
   final TextEditingController? nameController;
   final TextEditingController? initialAmountController;
@@ -52,10 +54,12 @@ class WalletFormOrganism extends StatelessWidget {
       children: [
         WalletFormHeaderAtom(
           isExisting: existing,
+          createRecordOnly: createRecordOnly,
         ),
         const SizedBox(height: 20),
         WalletFormInputMolecule(
           loading: loading,
+          createRecordOnly: createRecordOnly,
           nameController: nameController,
           initialAmountController: initialAmountController,
           spendAmountController: spendAmountController,

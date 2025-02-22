@@ -1,12 +1,9 @@
 import 'package:appwrite/appwrite.dart';
-import 'package:appwrite/models.dart';
 import 'package:dartz/dartz.dart';
 import 'package:hani/config.dart';
 import 'package:hani/features/category/data/dto/category_tag.dto.dart';
 import 'package:hani/features/category/data/dto/category_tags_pager.dto.dart';
 import 'package:injectable/injectable.dart';
-
-import '../../domain/vo/create_category_tags_vo.dart';
 
 @lazySingleton
 class CategoryTagsRemoteDatasource {

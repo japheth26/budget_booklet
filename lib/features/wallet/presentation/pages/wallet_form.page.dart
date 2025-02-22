@@ -18,7 +18,10 @@ import '../../../../core/validator/guard.dart';
 
 @RoutePage()
 class WalletFormPage extends StatefulWidget {
-  const WalletFormPage({super.key});
+  const WalletFormPage({super.key, this.wallet, this.createRecordOnly = false});
+
+  final WalletEntity? wallet;
+  final bool createRecordOnly;
 
   @override
   State<WalletFormPage> createState() => _WalletFormPageState();
@@ -46,6 +49,8 @@ class _WalletFormPageState extends State<WalletFormPage> {
   late MonthlyRecordBloc _monthlyRecordBloc;
 
   late String _userId;
+  late WalletEntity? _wallet;
+  late bool _createRecordOnly;
 
   @override
   void initState() {
@@ -57,6 +62,15 @@ class _WalletFormPageState extends State<WalletFormPage> {
     _monthlyRecordBloc = getIt<MonthlyRecordBloc>();
 
     _userId = _authBloc.state.authUserEntity!.userId;
+
+    _wallet = widget.wallet;
+    _createRecordOnly = widget.createRecordOnly;
+
+    _initializeData();
+  }
+
+  void _initializeData() {
+    _nameController.text = _wallet?.name ?? '';
   }
 
   @override
@@ -85,6 +99,7 @@ class _WalletFormPageState extends State<WalletFormPage> {
         return WalletFormTemplate(
           params: WalletFormParams(
             loading: state.stateStatus == StateStatus.loading,
+            createRecordOnly: _createRecordOnly,
             onBackPressed: () => _router.maybePop(),
             nameController: _nameController,
             initialAmountController: _initialAmountController,
@@ -162,7 +177,8 @@ class _WalletFormPageState extends State<WalletFormPage> {
     if (isNameValid &&
         isInitialAmountValid &&
         isSpendingAmountValid &&
-        isSavingAmountValid) {
+        isSavingAmountValid &&
+        !_createRecordOnly) {
       _walletBloc.add(
         WalletEvent.createWallet(
           dto: CreateWalletDto(
@@ -171,6 +187,21 @@ class _WalletFormPageState extends State<WalletFormPage> {
           ),
         ),
       );
+    }
+
+    if (isNameValid &&
+        isInitialAmountValid &&
+        isSpendingAmountValid &&
+        isSavingAmountValid &&
+        _createRecordOnly) {
+      if (_wallet == null) {
+        GlobalDialog.showErrorDialog(context, message: 'Wallet not found!');
+        return;
+      }
+
+      _handleCreateMonthlyRecord(_wallet!);
+
+      _router.maybePop();
     }
   }
 

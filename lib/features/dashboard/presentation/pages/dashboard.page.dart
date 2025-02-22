@@ -1,12 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hani/core/color/custom_color.dart';
+import 'package:hani/core/dependency_injection/injection.dart';
 import 'package:hani/features/dashboard/presentation/templates/dashboard/dashboard_params.dart';
 import 'package:hani/features/dashboard/presentation/templates/dashboard/dashboard_template.dart';
-
-import '../../../budget/presentation/templates/budget/budget_params.dart';
+import 'package:hani/features/wallet/domain/bloc/wallet/wallet_bloc.dart';
+import 'package:hani/features/wallet/domain/entity/wallet.entity.dart';
 
 @RoutePage()
 class DashboardPage extends StatefulWidget {
@@ -17,6 +16,17 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  late WalletBloc _walletBloc;
+
+  late WalletEntity? _walletEntity;
+
+  @override
+  void initState() {
+    super.initState();
+    _walletBloc = getIt<WalletBloc>();
+    _walletEntity = _walletBloc.state.selectedWallet;
+  }
+
   @override
   Widget build(BuildContext context) {
     return DashboardTemplate(

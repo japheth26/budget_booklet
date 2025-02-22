@@ -17,6 +17,7 @@ import '../../features/income/presentation/pages/add_update_income.page.dart';
 import '../../features/income/presentation/pages/income.page.dart';
 import '../../features/tag/presentation/pages/tag.page.dart';
 import '../../features/tag/presentation/pages/tag_form.page.dart';
+import '../../features/wallet/domain/entity/wallet.entity.dart';
 import '../../features/wallet/presentation/pages/money_tracker.page.dart';
 import '../../features/wallet/presentation/pages/start_tracker.page.dart';
 import '../../features/wallet/presentation/pages/wallet_form.page.dart';

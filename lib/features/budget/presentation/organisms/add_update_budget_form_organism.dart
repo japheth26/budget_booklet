@@ -16,6 +16,7 @@ class AddUpdateBudgetFormOrganism extends StatelessWidget {
     this.nameGlobalKey,
     this.nameValidator,
     this.amountValidator,
+    this.onDateTimeRangeSelected,
     this.onSubmit,
   });
 
@@ -28,6 +29,7 @@ class AddUpdateBudgetFormOrganism extends StatelessWidget {
   final GlobalKey<FormFieldState>? amountGlobalKey;
   final String? Function(String?)? nameValidator;
   final String? Function(String?)? amountValidator;
+  final void Function(DateTimeRange?)? onDateTimeRangeSelected;
   final Function()? onSubmit;
 
   @override
@@ -51,6 +53,7 @@ class AddUpdateBudgetFormOrganism extends StatelessWidget {
               nameGlobalKey: nameGlobalKey,
               nameValidator: nameValidator,
               amountValidator: amountValidator,
+              onDateTimeRangeSelected: onDateTimeRangeSelected,
             ),
           ),
           const Expanded(child: SizedBox()),

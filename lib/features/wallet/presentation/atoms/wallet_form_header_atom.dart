@@ -5,9 +5,11 @@ import '../../../../core/sizes/app_sizes.dart';
 import '../../../../core/widgets/icons/custom_icons.dart';
 
 class WalletFormHeaderAtom extends StatelessWidget {
-  const WalletFormHeaderAtom({super.key, this.isExisting = false});
+  const WalletFormHeaderAtom(
+      {super.key, this.isExisting = false, this.createRecordOnly = false});
 
   final bool isExisting;
+  final bool createRecordOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class WalletFormHeaderAtom extends StatelessWidget {
           Container(
             margin: const EdgeInsets.all(10),
             child: Text(
-              '${isExisting ? "Update" : "Create"} wallet',
+              '${isExisting ? "Update" : "Create"} ${createRecordOnly ? "record" : "wallet"}',
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: AppSizes.h_20,

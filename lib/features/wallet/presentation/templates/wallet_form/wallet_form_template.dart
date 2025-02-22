@@ -36,6 +36,7 @@ class WalletFormTemplate extends StatelessWidget {
         child: WalletFormOrganism(
           loading: params?.loading ?? false,
           existing: params?.existing ?? false,
+          createRecordOnly: params?.createRecordOnly ?? false,
           nameController: params?.nameController,
           initialAmountController: params?.initialAmountController,
           spendAmountController: params?.spendAmountController,

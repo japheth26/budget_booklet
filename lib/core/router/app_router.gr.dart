@@ -494,10 +494,19 @@ class TagRouteArgs {
 
 /// generated route for
 /// [WalletFormPage]
-class WalletFormRoute extends PageRouteInfo<void> {
-  const WalletFormRoute({List<PageRouteInfo>? children})
-      : super(
+class WalletFormRoute extends PageRouteInfo<WalletFormRouteArgs> {
+  WalletFormRoute({
+    Key? key,
+    WalletEntity? wallet,
+    bool createRecordOnly = false,
+    List<PageRouteInfo>? children,
+  }) : super(
           WalletFormRoute.name,
+          args: WalletFormRouteArgs(
+            key: key,
+            wallet: wallet,
+            createRecordOnly: createRecordOnly,
+          ),
           initialChildren: children,
         );
 
@@ -506,9 +515,34 @@ class WalletFormRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const WalletFormPage();
+      final args = data.argsAs<WalletFormRouteArgs>(
+          orElse: () => const WalletFormRouteArgs());
+      return WalletFormPage(
+        key: args.key,
+        wallet: args.wallet,
+        createRecordOnly: args.createRecordOnly,
+      );
     },
   );
+}
+
+class WalletFormRouteArgs {
+  const WalletFormRouteArgs({
+    this.key,
+    this.wallet,
+    this.createRecordOnly = false,
+  });
+
+  final Key? key;
+
+  final WalletEntity? wallet;
+
+  final bool createRecordOnly;
+
+  @override
+  String toString() {
+    return 'WalletFormRouteArgs{key: $key, wallet: $wallet, createRecordOnly: $createRecordOnly}';
+  }
 }
 
 /// generated route for

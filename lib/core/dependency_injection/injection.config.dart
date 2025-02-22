@@ -23,6 +23,13 @@ import '../../features/auth/data/datasource/user_remote_datasource.dart'
     as _i71;
 import '../../features/auth/data/repository/auth_repository.dart' as _i104;
 import '../../features/auth/domain/bloc/auth/auth_bloc.dart' as _i780;
+import '../../features/budget/data/datasources/budget_remote.datasource.dart'
+    as _i704;
+import '../../features/budget/data/repositories/budget.repository.dart'
+    as _i680;
+import '../../features/budget/domain/bloc/budget/budget_bloc.dart' as _i186;
+import '../../features/budget/domain/repositories/i_budget.repository.dart'
+    as _i496;
 import '../../features/category/data/datasources/category_remote.datasource.dart'
     as _i339;
 import '../../features/category/data/datasources/category_tags_remote.datasource.dart'
@@ -98,6 +105,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i967.CategoryTagsRemoteDatasource(gh<_i317.Databases>()));
     gh.lazySingleton<_i252.MonthlyRecordRemoteDatasource>(
         () => _i252.MonthlyRecordRemoteDatasource(gh<_i317.Databases>()));
+    gh.lazySingleton<_i704.BudgetRemoteDatasource>(
+        () => _i704.BudgetRemoteDatasource(gh<_i317.Databases>()));
     gh.lazySingleton<_i950.CategoryTagRepository>(
         () => _i950.CategoryTagRepository(
               gh<_i974.Logger>(),
@@ -126,6 +135,10 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i1038.WalletRepository>(),
           gh<_i622.AssignedWalletRepository>(),
         ));
+    gh.lazySingleton<_i496.IBudgetRepository>(() => _i680.BudgetRepository(
+          gh<_i974.Logger>(),
+          gh<_i704.BudgetRemoteDatasource>(),
+        ));
     gh.lazySingleton<_i410.CategoryRepository>(() => _i410.CategoryRepository(
           gh<_i974.Logger>(),
           gh<_i339.CategoryRemoteDatasource>(),
@@ -140,6 +153,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i185.TagBloc(gh<_i451.TagRepository>()));
     gh.lazySingleton<_i780.AuthBloc>(
         () => _i780.AuthBloc(gh<_i104.AuthRepository>()));
+    gh.lazySingleton<_i186.BudgetBloc>(
+        () => _i186.BudgetBloc(gh<_i496.IBudgetRepository>()));
     gh.lazySingleton<_i618.CategoryBloc>(() => _i618.CategoryBloc(
           gh<_i410.CategoryRepository>(),
           gh<_i950.CategoryTagRepository>(),

@@ -1,6 +1,4 @@
 import 'package:appwrite/appwrite.dart';
-import 'package:appwrite/models.dart';
-import 'package:dartz/dartz.dart';
 import 'package:hani/config.dart';
 import 'package:hani/features/wallet/domain/vo/create_wallet.vo.dart';
 import 'package:injectable/injectable.dart';

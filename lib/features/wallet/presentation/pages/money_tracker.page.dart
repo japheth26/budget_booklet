@@ -1,6 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:hani/core/dependency_injection/injection.dart';
 import 'package:hani/core/router/app_router.dart';
+import 'package:hani/features/wallet/domain/bloc/wallet/wallet_bloc.dart';
+import 'package:hani/features/wallet/domain/entity/wallet.entity.dart';
 import 'package:hani/features/wallet/presentation/templates/money_tracker/money_tracker_params.dart';
 import 'package:hani/features/wallet/presentation/templates/money_tracker/money_tracker_template.dart';
 
@@ -19,6 +22,9 @@ class _MoneyTrackerPageState extends State<MoneyTrackerPage>
   late StackRouter _router;
   late GlobalKey<ScaffoldState> _endDrawerKey;
 
+  late WalletBloc _walletBloc;
+  late WalletEntity? _walletEntity;
+
   @override
   void initState() {
     super.initState();
@@ -26,6 +32,9 @@ class _MoneyTrackerPageState extends State<MoneyTrackerPage>
     _tabController = TabController(length: 4, vsync: this);
     _router = AutoRouter.of(context);
     _endDrawerKey = GlobalKey<ScaffoldState>();
+
+    _walletBloc = getIt<WalletBloc>();
+    _walletEntity = _walletBloc.state.selectedWallet;
   }
 
   @override
@@ -41,7 +50,7 @@ class _MoneyTrackerPageState extends State<MoneyTrackerPage>
     return MoneyTrackerTemplate(
       moneyTrackerParams: MoneyTrackerParams(
         endDrawerKey: _endDrawerKey,
-        name: 'Wallet 1',
+        name: _walletEntity?.name,
         walletNumber: '123 456 078',
         endDrawerOnPressed: () {
           _endDrawerKey.currentState?.openEndDrawer();

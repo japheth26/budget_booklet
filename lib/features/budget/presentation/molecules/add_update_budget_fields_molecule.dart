@@ -15,6 +15,7 @@ class AddUpdateBudgetFieldsMolecule extends StatelessWidget {
     this.amountGlobalKey,
     this.nameValidator,
     this.amountValidator,
+    this.onDateTimeRangeSelected,
   });
 
   final TextEditingController? nameController;
@@ -27,6 +28,7 @@ class AddUpdateBudgetFieldsMolecule extends StatelessWidget {
 
   final String? Function(String?)? nameValidator;
   final String? Function(String?)? amountValidator;
+  final void Function(DateTimeRange?)? onDateTimeRangeSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +52,7 @@ class AddUpdateBudgetFieldsMolecule extends StatelessWidget {
         DateRangePickerAtom(
           label: 'Date Range',
           controller: dateRangePickerController,
+          onDateTimeRangeSelected: onDateTimeRangeSelected,
         ),
         MultiTextFieldAtom(
           label: 'Notes',

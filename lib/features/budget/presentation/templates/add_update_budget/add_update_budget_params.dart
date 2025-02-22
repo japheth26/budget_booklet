@@ -11,6 +11,7 @@ class AddUpdateBudgetParams {
   final GlobalKey<FormFieldState>? amountGlobalKey;
   final String? Function(String?)? nameValidator;
   final String? Function(String?)? amountValidator;
+  final void Function(DateTimeRange?)? onDateTimeRangeSelected;
   final Function()? onSubmit;
 
   AddUpdateBudgetParams({
@@ -24,6 +25,7 @@ class AddUpdateBudgetParams {
     this.amountGlobalKey,
     this.nameValidator,
     this.amountValidator,
+    this.onDateTimeRangeSelected,
     this.onSubmit,
   });
 }

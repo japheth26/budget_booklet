@@ -10,6 +10,7 @@ import 'package:hani/features/auth/presentation/templates/home/home_params.dart'
 import 'package:hani/features/auth/presentation/templates/home/home_template.dart';
 import 'package:hani/features/monthly_record/domain/bloc/monthly_record/monthly_record_bloc.dart';
 import 'package:hani/features/wallet/domain/bloc/wallet/wallet_bloc.dart';
+import 'package:hani/features/wallet/domain/entity/wallet.entity.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -58,7 +59,8 @@ class _HomePageState extends State<HomePage> {
               return HomeTemplate(
                 params: HomeParams(
                     onRefresh: _handleOnRefresh,
-                    loading: walletState.stateStatus == StateStatus.loading,
+                    loading: walletState.stateStatus == StateStatus.loading ||
+                        monthlyRecordState.stateStatus == StateStatus.loading,
                     drawerOnPressed: () {
                       _router.push(const HomeDrawerRoute());
                     },
@@ -90,14 +92,13 @@ class _HomePageState extends State<HomePage> {
                             )
                           ],
                           onTap: () {
-                            _router
-                                .push(WalletLoadingRoute(walletId: e.walletId));
+                            _handleOnSelectWallet(e);
                           },
                         );
                       }),
                     ],
                     addOnPressed: () {
-                      _router.push(const WalletFormRoute());
+                      _router.push(WalletFormRoute());
                     }),
               );
             },
@@ -144,5 +145,16 @@ class _HomePageState extends State<HomePage> {
 
   void _fixUnassignedWallets() {
     _walletBloc.add(WalletEvent.fixAssignedWallets(userId: _userId));
+  }
+
+  void _handleOnSelectWallet(WalletEntity wallet) {
+    final monthlyRecord =
+        _monthlyRecordBloc.state.monthlyRecordsByWalletId[wallet.walletId];
+
+    if (monthlyRecord != null) {
+      _router.push(WalletLoadingRoute(walletId: wallet.walletId));
+    } else {
+      _router.push(WalletFormRoute(wallet: wallet, createRecordOnly: true));
+    }
   }
 }

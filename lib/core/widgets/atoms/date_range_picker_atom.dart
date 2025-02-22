@@ -42,7 +42,7 @@ class DateRangePickerAtom extends StatelessWidget {
   final Widget? prefixIcon;
 
   final String? Function(String?)? validator;
-  final Function(DateTimeRange?)? onDateTimeRangeSelected;
+  final void Function(DateTimeRange?)? onDateTimeRangeSelected;
 
   final bool isRequired;
 

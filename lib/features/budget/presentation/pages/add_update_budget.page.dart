@@ -50,7 +50,7 @@ class _AddUpdateBudgetPageState extends State<AddUpdateBudgetPage> {
   @override
   Widget build(BuildContext context) {
     return AddUpdateBudgetTemplate(
-      addUpdateBudgetParams: AddUpdateBudgetParams(
+      params: AddUpdateBudgetParams(
         onBackPressed: () {
           _router.maybePop();
         },

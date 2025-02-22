@@ -10,6 +10,7 @@ class WalletFormInputMolecule extends StatelessWidget {
   const WalletFormInputMolecule({
     super.key,
     this.loading = false,
+    this.createRecordOnly = false,
     this.nameController,
     this.initialAmountController,
     this.nameGlobalKey,
@@ -26,6 +27,7 @@ class WalletFormInputMolecule extends StatelessWidget {
     this.saveAmountValidator,
   });
   final bool loading;
+  final bool createRecordOnly;
   final TextEditingController? nameController;
   final TextEditingController? initialAmountController;
   final TextEditingController? spendAmountController;
@@ -52,7 +54,7 @@ class WalletFormInputMolecule extends StatelessWidget {
         children: [
           const FormHeaderAtom(label: 'Wallet Info'),
           TextFieldAtom(
-            enabled: !loading,
+            enabled: !loading && !createRecordOnly,
             controller: nameController,
             globalKey: nameGlobalKey,
             validator: nameValidator,
