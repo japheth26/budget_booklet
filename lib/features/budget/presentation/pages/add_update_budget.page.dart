@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hani/core/text/text.utils.dart';
 import 'package:hani/core/validator/guard.dart';
+import 'package:hani/features/budget/data/dto/create_budget.dto.dart';
+import 'package:hani/features/budget/domain/bloc/budget/budget_bloc.dart';
 import 'package:hani/features/budget/presentation/templates/add_update_budget/add_update_budget_params.dart';
 import 'package:hani/features/budget/presentation/templates/add_update_budget/add_update_budget_template.dart';
 import 'package:hani/features/monthly_record/domain/bloc/monthly_record/monthly_record_bloc.dart';
@@ -36,6 +38,7 @@ class _AddUpdateBudgetPageState extends State<AddUpdateBudgetPage> {
 
   late MonthlyRecordBloc _monthlyRecordBloc;
   late WalletBloc _walletBloc;
+  late BudgetBloc _budgetBloc;
 
   late String _walletId;
   late MonthlyRecordEntity _monthlyRecord;
@@ -51,6 +54,7 @@ class _AddUpdateBudgetPageState extends State<AddUpdateBudgetPage> {
 
     _monthlyRecordBloc = getIt<MonthlyRecordBloc>();
     _walletBloc = getIt<WalletBloc>();
+    _budgetBloc = getIt<BudgetBloc>();
 
     _walletId = _walletBloc.state.selectedWallet!.walletId;
     _monthlyRecord =
@@ -140,5 +144,18 @@ class _AddUpdateBudgetPageState extends State<AddUpdateBudgetPage> {
     print('notes: $notes');
     print('from: ${from.toIso8601String()}');
     print('to: ${to.toIso8601String()}');
+
+    return;
+
+    final dto = CreateBudgetDto(
+      walletId: _walletId,
+      name: _nameController.text,
+      amount: double.parse(_amountController.text.replaceAll(',', '')),
+      from: _timeRange?.start ?? _firstDate,
+      to: _timeRange?.end ?? _lastDate,
+      notes: _notesController.text,
+    );
+
+    _budgetBloc.add(BudgetEvent.createBudget(dto: dto));
   }
 }

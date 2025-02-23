@@ -51,8 +51,6 @@ class AddUpdateBudgetFormOrganism extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            AddUpdateBudgetHeaderAtom(existingBudget: existingBudget),
-            const SizedBox(height: 20),
             AvailableBalanceAtom(amount: unbudgetedAmount),
             const SizedBox(height: 10),
             AddUpdateBudgetFieldsMolecule(

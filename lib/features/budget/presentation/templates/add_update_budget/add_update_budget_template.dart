@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hani/core/widgets/atoms/app_bar_atom.dart';
 import 'package:hani/features/budget/presentation/organisms/add_update_budget_form_organism.dart';
 import 'package:hani/features/budget/presentation/templates/add_update_budget/add_update_budget_params.dart';
 
@@ -24,12 +25,14 @@ class AddUpdateBudgetTemplate extends StatelessWidget {
       },
       child: Scaffold(
           backgroundColor: colorTheme.white_black,
-          appBar: AppBar(
-            foregroundColor: Colors.transparent,
-            shadowColor: Colors.black,
-            surfaceTintColor: CustomColor.primaryGreen,
-            backgroundColor: colorTheme.primaryGreen_blueGrey800WithOpacity3,
-            centerTitle: false,
+          appBar: AppBarAtom(
+            centerTitle: true,
+            title: Text(
+              params?.existingBudget ?? false
+                  ? 'Update Budget'
+                  : 'Create Budget',
+              style: const TextStyle(color: Colors.white),
+            ),
             leading: GestureDetector(
               onTap: params?.onBackPressed,
               child: const Icon(
