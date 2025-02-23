@@ -50,6 +50,7 @@ class MonthlyRecordRemoteDatasource {
     final data = {
       'recordId': recordId,
       ...vo.toJson(),
+      'unbudgeted': vo.initialAmount,
     };
 
     final document = await _databases.createDocument(

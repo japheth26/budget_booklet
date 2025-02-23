@@ -7,6 +7,8 @@ import '../../../../core/widgets/atoms/text_field_atom.dart';
 class AddUpdateBudgetFieldsMolecule extends StatelessWidget {
   const AddUpdateBudgetFieldsMolecule({
     super.key,
+    this.firstDate,
+    this.lastDate,
     this.nameController,
     this.amountController,
     this.dateRangePickerController,
@@ -18,6 +20,8 @@ class AddUpdateBudgetFieldsMolecule extends StatelessWidget {
     this.onDateTimeRangeSelected,
   });
 
+  final DateTime? firstDate;
+  final DateTime? lastDate;
   final TextEditingController? nameController;
   final TextEditingController? amountController;
   final TextEditingController? dateRangePickerController;
@@ -51,6 +55,8 @@ class AddUpdateBudgetFieldsMolecule extends StatelessWidget {
         ),
         DateRangePickerAtom(
           label: 'Date Range',
+          firstDate: firstDate,
+          lastDate: lastDate,
           controller: dateRangePickerController,
           onDateTimeRangeSelected: onDateTimeRangeSelected,
         ),

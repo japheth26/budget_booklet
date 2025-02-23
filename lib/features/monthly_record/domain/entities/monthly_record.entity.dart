@@ -12,6 +12,8 @@ class MonthlyRecordEntity extends Equatable {
   final double savingAmount;
   final double income;
   final double expense;
+  final double budget;
+  final double unbudgeted;
   final String goal;
   final String plan;
   final int month;
@@ -25,6 +27,8 @@ class MonthlyRecordEntity extends Equatable {
       required this.savingAmount,
       required this.income,
       required this.expense,
+      required this.budget,
+      required this.unbudgeted,
       required this.goal,
       required this.plan,
       required this.month,
@@ -39,6 +43,8 @@ class MonthlyRecordEntity extends Equatable {
         savingAmount,
         income,
         expense,
+        budget,
+        unbudgeted,
         goal,
         plan,
         month,
@@ -68,6 +74,8 @@ class MonthlyRecordEntity extends Equatable {
       savingAmount: dto.savingAmount!,
       income: dto.income ?? 0,
       expense: dto.expense ?? 0,
+      budget: dto.budget ?? 0,
+      unbudgeted: dto.unbudgeted ?? 0,
       goal: dto.goal ?? '',
       plan: dto.plan ?? '',
       month: dto.month!,

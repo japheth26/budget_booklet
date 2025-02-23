@@ -27,6 +27,7 @@ class ColorTheme {
     blueAccentWithOpacity3_blueGrey800WithOpacity3 = isLight
         ? Colors.blueAccent.withOpacity(0.3)
         : Colors.blueGrey[800]!.withOpacity(0.3);
+    blueGrey_white = isLight ? CustomColor.blueGrey : Colors.white;
   }
 
   final Brightness brightness;
@@ -43,6 +44,7 @@ class ColorTheme {
   late Color blueGreyWithOpacity2_transparent;
   late Color white_blueGrey800WithOpacity2;
   late Color blueAccentWithOpacity3_blueGrey800WithOpacity3;
+  late Color blueGrey_white;
 }
 
 class ColorThemeUtils {

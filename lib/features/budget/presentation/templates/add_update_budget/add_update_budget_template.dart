@@ -42,6 +42,9 @@ class AddUpdateBudgetTemplate extends StatelessWidget {
           body: SingleChildScrollView(
             child: AddUpdateBudgetFormOrganism(
               existingBudget: params?.existingBudget ?? false,
+              firstDate: params?.firstDate,
+              lastDate: params?.lastDate,
+              unbudgetedAmount: params?.unbudgetedAmount,
               nameController: params?.nameController,
               amountController: params?.amountController,
               dateRangePickerController: params?.dateRangePickerController,

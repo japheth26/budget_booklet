@@ -13,6 +13,8 @@ class MonthlyRecordDto with _$MonthlyRecordDto {
     double? savingAmount,
     double? income,
     double? expense,
+    double? budget,
+    double? unbudgeted,
     String? goal,
     String? plan,
     int? month,

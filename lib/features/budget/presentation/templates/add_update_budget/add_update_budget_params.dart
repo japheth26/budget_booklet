@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 class AddUpdateBudgetParams {
   final bool existingBudget;
   final Function()? onBackPressed;
+  final DateTime? firstDate;
+  final DateTime? lastDate;
+  final double? unbudgetedAmount;
   final TextEditingController? nameController;
   final TextEditingController? amountController;
   final TextEditingController? dateRangePickerController;
@@ -17,6 +20,9 @@ class AddUpdateBudgetParams {
   AddUpdateBudgetParams({
     this.existingBudget = false,
     this.onBackPressed,
+    this.firstDate,
+    this.lastDate,
+    this.unbudgetedAmount,
     this.nameController,
     this.amountController,
     this.dateRangePickerController,

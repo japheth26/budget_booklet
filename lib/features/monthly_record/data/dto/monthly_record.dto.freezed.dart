@@ -27,6 +27,8 @@ mixin _$MonthlyRecordDto {
   double? get savingAmount => throw _privateConstructorUsedError;
   double? get income => throw _privateConstructorUsedError;
   double? get expense => throw _privateConstructorUsedError;
+  double? get budget => throw _privateConstructorUsedError;
+  double? get unbudgeted => throw _privateConstructorUsedError;
   String? get goal => throw _privateConstructorUsedError;
   String? get plan => throw _privateConstructorUsedError;
   int? get month => throw _privateConstructorUsedError;
@@ -52,6 +54,8 @@ abstract class $MonthlyRecordDtoCopyWith<$Res> {
       double? savingAmount,
       double? income,
       double? expense,
+      double? budget,
+      double? unbudgeted,
       String? goal,
       String? plan,
       int? month,
@@ -78,6 +82,8 @@ class _$MonthlyRecordDtoCopyWithImpl<$Res, $Val extends MonthlyRecordDto>
     Object? savingAmount = freezed,
     Object? income = freezed,
     Object? expense = freezed,
+    Object? budget = freezed,
+    Object? unbudgeted = freezed,
     Object? goal = freezed,
     Object? plan = freezed,
     Object? month = freezed,
@@ -111,6 +117,14 @@ class _$MonthlyRecordDtoCopyWithImpl<$Res, $Val extends MonthlyRecordDto>
       expense: freezed == expense
           ? _value.expense
           : expense // ignore: cast_nullable_to_non_nullable
+              as double?,
+      budget: freezed == budget
+          ? _value.budget
+          : budget // ignore: cast_nullable_to_non_nullable
+              as double?,
+      unbudgeted: freezed == unbudgeted
+          ? _value.unbudgeted
+          : unbudgeted // ignore: cast_nullable_to_non_nullable
               as double?,
       goal: freezed == goal
           ? _value.goal
@@ -148,6 +162,8 @@ abstract class _$$MonthlyRecordDtoImplCopyWith<$Res>
       double? savingAmount,
       double? income,
       double? expense,
+      double? budget,
+      double? unbudgeted,
       String? goal,
       String? plan,
       int? month,
@@ -172,6 +188,8 @@ class __$$MonthlyRecordDtoImplCopyWithImpl<$Res>
     Object? savingAmount = freezed,
     Object? income = freezed,
     Object? expense = freezed,
+    Object? budget = freezed,
+    Object? unbudgeted = freezed,
     Object? goal = freezed,
     Object? plan = freezed,
     Object? month = freezed,
@@ -206,6 +224,14 @@ class __$$MonthlyRecordDtoImplCopyWithImpl<$Res>
           ? _value.expense
           : expense // ignore: cast_nullable_to_non_nullable
               as double?,
+      budget: freezed == budget
+          ? _value.budget
+          : budget // ignore: cast_nullable_to_non_nullable
+              as double?,
+      unbudgeted: freezed == unbudgeted
+          ? _value.unbudgeted
+          : unbudgeted // ignore: cast_nullable_to_non_nullable
+              as double?,
       goal: freezed == goal
           ? _value.goal
           : goal // ignore: cast_nullable_to_non_nullable
@@ -237,6 +263,8 @@ class _$MonthlyRecordDtoImpl extends _MonthlyRecordDto {
       this.savingAmount,
       this.income,
       this.expense,
+      this.budget,
+      this.unbudgeted,
       this.goal,
       this.plan,
       this.month,
@@ -261,6 +289,10 @@ class _$MonthlyRecordDtoImpl extends _MonthlyRecordDto {
   @override
   final double? expense;
   @override
+  final double? budget;
+  @override
+  final double? unbudgeted;
+  @override
   final String? goal;
   @override
   final String? plan;
@@ -271,7 +303,7 @@ class _$MonthlyRecordDtoImpl extends _MonthlyRecordDto {
 
   @override
   String toString() {
-    return 'MonthlyRecordDto(recordId: $recordId, walletId: $walletId, initialAmount: $initialAmount, spendingAmount: $spendingAmount, savingAmount: $savingAmount, income: $income, expense: $expense, goal: $goal, plan: $plan, month: $month, year: $year)';
+    return 'MonthlyRecordDto(recordId: $recordId, walletId: $walletId, initialAmount: $initialAmount, spendingAmount: $spendingAmount, savingAmount: $savingAmount, income: $income, expense: $expense, budget: $budget, unbudgeted: $unbudgeted, goal: $goal, plan: $plan, month: $month, year: $year)';
   }
 
   @override
@@ -291,6 +323,9 @@ class _$MonthlyRecordDtoImpl extends _MonthlyRecordDto {
                 other.savingAmount == savingAmount) &&
             (identical(other.income, income) || other.income == income) &&
             (identical(other.expense, expense) || other.expense == expense) &&
+            (identical(other.budget, budget) || other.budget == budget) &&
+            (identical(other.unbudgeted, unbudgeted) ||
+                other.unbudgeted == unbudgeted) &&
             (identical(other.goal, goal) || other.goal == goal) &&
             (identical(other.plan, plan) || other.plan == plan) &&
             (identical(other.month, month) || other.month == month) &&
@@ -308,6 +343,8 @@ class _$MonthlyRecordDtoImpl extends _MonthlyRecordDto {
       savingAmount,
       income,
       expense,
+      budget,
+      unbudgeted,
       goal,
       plan,
       month,
@@ -337,6 +374,8 @@ abstract class _MonthlyRecordDto extends MonthlyRecordDto {
       final double? savingAmount,
       final double? income,
       final double? expense,
+      final double? budget,
+      final double? unbudgeted,
       final String? goal,
       final String? plan,
       final int? month,
@@ -360,6 +399,10 @@ abstract class _MonthlyRecordDto extends MonthlyRecordDto {
   double? get income;
   @override
   double? get expense;
+  @override
+  double? get budget;
+  @override
+  double? get unbudgeted;
   @override
   String? get goal;
   @override

@@ -1,3 +1,5 @@
+import 'package:hani/core/text/text.utils.dart';
+
 import 'guard_argument.dart';
 
 class Guard {
@@ -235,5 +237,35 @@ class Guard {
     } catch (e) {
       return '$name is invalid';
     }
+  }
+
+  static String? againstDoubleOutOfRange(
+      String name, dynamic value, dynamic limit) {
+    final invalidValue = againstInvalidDouble(name, value);
+    if (invalidValue != null) return invalidValue;
+
+    final invalidLimit = againstInvalidDouble('Limit', limit);
+    if (invalidLimit != null) return invalidLimit;
+
+    late double tempValue;
+    late double tempLimit;
+
+    if (value is String) {
+      tempValue = double.parse(value.replaceAll(',', ''));
+    } else {
+      tempValue = value;
+    }
+
+    if (limit is String) {
+      tempLimit = double.parse(limit.replaceAll(',', ''));
+    } else {
+      tempLimit = limit;
+    }
+
+    if (tempValue > tempLimit) {
+      return '$name should be less or equal to ${TextUtils.applyMask(limit)}';
+    }
+
+    return null;
   }
 }

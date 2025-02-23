@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hani/features/budget/presentation/atoms/available_balance_atom.dart';
 import 'package:hani/features/budget/presentation/molecules/add_update_budget_fields_molecule.dart';
 
 import '../../../../core/widgets/atoms/form_button_atom.dart';
@@ -8,6 +9,9 @@ class AddUpdateBudgetFormOrganism extends StatelessWidget {
   const AddUpdateBudgetFormOrganism({
     super.key,
     this.existingBudget = false,
+    this.unbudgetedAmount,
+    this.firstDate,
+    this.lastDate,
     this.nameController,
     this.amountController,
     this.dateRangePickerController,
@@ -21,6 +25,9 @@ class AddUpdateBudgetFormOrganism extends StatelessWidget {
   });
 
   final bool existingBudget;
+  final double? unbudgetedAmount;
+  final DateTime? firstDate;
+  final DateTime? lastDate;
   final TextEditingController? nameController;
   final TextEditingController? amountController;
   final TextEditingController? dateRangePickerController;
@@ -38,13 +45,19 @@ class AddUpdateBudgetFormOrganism extends StatelessWidget {
       constraints: BoxConstraints(
         maxHeight: MediaQuery.of(context).size.height - kToolbarHeight - 120,
       ),
-      child: Column(
-        children: [
-          AddUpdateBudgetHeaderAtom(existingBudget: existingBudget),
-          const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: AddUpdateBudgetFieldsMolecule(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 20),
+            AddUpdateBudgetHeaderAtom(existingBudget: existingBudget),
+            const SizedBox(height: 20),
+            AvailableBalanceAtom(amount: unbudgetedAmount),
+            const SizedBox(height: 10),
+            AddUpdateBudgetFieldsMolecule(
+              firstDate: firstDate,
+              lastDate: lastDate,
               nameController: nameController,
               amountController: amountController,
               dateRangePickerController: dateRangePickerController,
@@ -55,11 +68,13 @@ class AddUpdateBudgetFormOrganism extends StatelessWidget {
               amountValidator: amountValidator,
               onDateTimeRangeSelected: onDateTimeRangeSelected,
             ),
-          ),
-          const Expanded(child: SizedBox()),
-          FormButtonAtom(label: 'Create Budget', onPressed: onSubmit),
-          const SizedBox(height: 20),
-        ],
+            const Expanded(child: SizedBox()),
+            FormButtonAtom(
+                label: existingBudget ? 'Update' : 'Create',
+                onPressed: onSubmit),
+            const SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }

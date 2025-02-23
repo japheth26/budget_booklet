@@ -30,7 +30,6 @@ class FormButtonAtom extends StatelessWidget {
   Widget build(BuildContext context) {
     const double borderRadius = 10;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
       width: double.infinity,
       height: 50,
       decoration: BoxDecoration(
